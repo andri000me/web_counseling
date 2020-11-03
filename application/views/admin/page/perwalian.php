@@ -53,12 +53,6 @@
                                             </table>
                                         </div>
                                         <hr>
-                                        <ul class="list-unstyled row text-center city-weather-days">
-                                            <li class="col"><span>Jumlah mahasiswa yang tidak memiliki dosen wali </span>
-                                                <h3>70</h3></li>
-                                            <li class="col"><span>Jumlah dosen wali yang tidak memiliki mahasiswa </span>
-                                                <h3>70</h3></li>
-                                        </ul>
                                     </div>
                                 <div class="table-responsive">
                                     <table id="table_wali" class="table table-bordered nowrap display table_wali">

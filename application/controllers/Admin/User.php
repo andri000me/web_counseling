@@ -15,8 +15,8 @@ class User extends CI_Controller {
 	{
 
 		$data['content']			=	'admin/page/data_user_staff';
-		$data['title']				=	'Halaman Admin - Data Staff';
-		$data['page']				=	'Data Staff';
+		$data['title']				=	'Halaman Admin - Data Pendidik';
+		$data['page']				=	'Data Pendidik';
 		$data['role']				=	$this->Muser->get_role_staff();
 		$data['prodi']				=	$this->Muser->get_prodi_select();
 		$this->load->view('admin/app', $data);

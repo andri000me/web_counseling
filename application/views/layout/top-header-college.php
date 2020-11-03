@@ -117,7 +117,6 @@ $data = $this->db->query("SELECT * FROM ms_users_college WHERE nim = $no_unique 
                                     <div class=""><img src="<?php echo base_url().$d->photo ?>" alt="user" class="img-circle" width="60"></div>
                                     <div class="ml-2">
                                         <h4 class="mb-0"><?php echo $d->name; ?></h4>
-                                        <p class=" mb-0"><?php echo $d->email; ?></p>
                                     </div>
                                 </div>
                                 <a class="dropdown-item" href="javascript:void(0)"><i class="ti-user mr-1 ml-1"></i> My Profile</a>

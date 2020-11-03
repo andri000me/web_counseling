@@ -2,7 +2,7 @@
 
 
     var table_konseling;
-       
+    var table_ketua;
 
     $(document).ready(function() {
 
@@ -47,6 +47,51 @@
 
         $('#search_konseling').keyup(function(){
             table_konseling.search($(this).val()).draw();
+        })
+
+       //================== table Ketua ===============================
+
+       table_ketua = $('.table_ketua').DataTable({
+              createdRow: function( row, data, dataIndex ) {
+                $(row).find('td').addClass('max-texts');
+            },
+
+            "bLengthChange": false,
+            "bFilter": true,
+            "bInfo": false,
+            "bAutoWidth": false,
+            "ordering": false,
+            "processing": true, 
+            "serverSide": true,
+            "order": [], 
+           
+            "ajax": {
+                "url": "<?php echo base_url('dosen/konseling/list_table_ketua')?>",
+                "type": "POST"
+            },
+
+            "columnDefs": [
+            { 
+                "targets": [ -1 ], 
+                "orderable": false, 
+                "className" : "max-texts"
+
+            },
+            ],
+
+            "oLanguage": {
+            "sZeroRecords": "Tidak ada data yang tersedia"
+            },
+            "fnInitComplete": function ( oSettings ) {
+            oSettings.oLanguage.sZeroRecords = "Data tidak ditemukan"
+            }
+
+         });
+
+        $("#table_ketua_filter").detach()
+
+        $('#search_ketua').keyup(function(){
+            table_ketua.search($(this).val()).draw();
         })
        //==================
         

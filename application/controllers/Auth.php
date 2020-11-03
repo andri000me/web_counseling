@@ -76,6 +76,9 @@ class Auth extends CI_Controller {
 		}else if($sess == 'DSN' ){
 			redirect('dosen/dashboard');
 		
+		}else if($sess == 'KTA' ){
+			redirect('dosen/dashboard');
+		
 		}else if($sess == 'MHS'){
 			redirect('college/dashboard');
 		}

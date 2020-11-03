@@ -1,10 +1,11 @@
 <script type="text/javascript">
-    var table_pengajuan;
-       
+
+
+    var table_konseling;
 
     $(document).ready(function() {
 
-         table_pengajuan = $('.table_pengajuan').DataTable({
+         table_konseling = $('.table_konseling').DataTable({
               createdRow: function( row, data, dataIndex ) {
                 $(row).find('td').addClass('max-texts');
             },
@@ -19,7 +20,7 @@
             "order": [], 
            
             "ajax": {
-                "url": "<?php echo base_url('admin/konseling/list_pengajuan_konseling')?>",
+                "url": "<?php echo base_url('admin/konseling/konseling')?>",
                 "type": "POST"
             },
 
@@ -41,23 +42,21 @@
 
          });
 
-        $("#table_pengajuan_filter").detach()
+        $("#table_konseling_filter").detach()
 
-        $('#filter_pengajuan').keyup(function(){
-            table_pengajuan.search($(this).val()).draw();
+        $('#search_konseling').keyup(function(){
+            table_konseling.search($(this).val()).draw();
         })
-       //==================
-        
-            
-    });
+      })
+
 
     //orderby
-     $('.orderby_pengajuan').on('click', function () {
-        $(".table_pengajuan").dataTable().fnDestroy();
-        var id = $(this).attr("data-id");
+     $('.filterby').on('click', function () {
+        $(".table_konseling").dataTable().fnDestroy();
+        var kode_selection = $(this).attr("data-id");
         var namepage = $(this).attr("label");
         $("#page").html('<i class="mdi mdi-chevron-right"></i> Filter By '+namepage);
-         table_pengajuan = $('.table_pengajuan').DataTable({
+         table_konseling = $('.table_konseling').DataTable({
              createdRow: function( row, data, dataIndex ) {
                 $(row).find('td').addClass('max-texts');
             },
@@ -71,9 +70,9 @@
             "order": [], 
            
             "ajax": {
-                "url": "<?php echo base_url('admin/konseling/orderby_pengajuan')?>",
+                "url": "<?php echo base_url('admin/konseling/filterby')?>",
                 "type": "POST",
-                "data": {id:id},
+                "data": {kode_selection:kode_selection},
             },
 
             "columnDefs": [
@@ -92,77 +91,99 @@
             }
 
          });
-           $("#table_pengajuan_filter").detach()
-           $('#filter_pengajuan').keyup(function(){
-                  table_pengajuan.search($(this).val()).draw();
+           $("#table_konseling_filter").detach()
+           $('#search_konseling').keyup(function(){
+                  table_konseling.search($(this).val()).draw();
             })
 
                      
          })
 
-   
+    //status consult table
+     $('.status_consult').on('click', function () {
+        $(".table_konseling").dataTable().fnDestroy();
+        var id_consult_status = $(this).attr("data-id");
+        var namepage = $(this).attr("label");
+        $(".status_consult").removeClass("active");
+        if (id_consult_status == '1') {
+          $("#status_diterima").addClass("active");
+        }else if (id_consult_status == '2') {
+          $("#status_berlangsung").addClass("active");
+        }else if (id_consult_status == '3') {
+          $("#status_selesai").addClass("active");
+        }else if (id_consult_status == '4') {
+          $("#status_ditolak").addClass("active");
+        }else if (id_consult_status == '5') {
+          $("#status_pending").addClass("active");
+        }else{
+          $("#status_terbaru").addClass("active");
+        }
+        $("#page").html('<i class="mdi mdi-chevron-right"></i> Status '+namepage);
+         table_konseling = $('.table_konseling').DataTable({
+             createdRow: function( row, data, dataIndex ) {
+                $(row).find('td').addClass('max-texts');
+            },
+            "bLengthChange": false,
+            "bFilter": true,
+            "bInfo": false,
+            "bAutoWidth": false,
+            "ordering": false,
+            "processing": true, 
+            "serverSide": true,
+            "order": [], 
+           
+            "ajax": {
+                "url": "<?php echo base_url('admin/konseling/status_consult')?>",
+                "type": "POST",
+                "data": {id_consult_status:id_consult_status},
+            },
+
+            "columnDefs": [
+            { 
+                "targets": [ -1 ], 
+                "orderable": false, 
+
+            },
+            ],
+
+            "oLanguage": {
+            "sZeroRecords": "Tidak ada data yang tersedia"
+            },
+            "fnInitComplete": function ( oSettings ) {
+            oSettings.oLanguage.sZeroRecords = "Data tidak ditemukan"
+            }
+
+         });
+           $("#table_konseling_filter").detach()
+           $('#search_konseling').keyup(function(){
+                  table_konseling.search($(this).val()).draw();
+            })
+
+                     
+         })
+
+
      //reload table
     function reload_table_konseling(e) {
 
-        table_pengajuan.ajax.reload(null,false); 
+        table_konseling.ajax.reload(null,false); 
          e.preventDefault();
     }
 
-    //delete pengajuan
-    $('.delete_pengajuan').click(function(){
-      var checkbox = $('.check_delete_pengajuan:checked');
-      if(checkbox.length > 0){
-            var checkbox_value = [];
-               $(checkbox).each(function(){
-                checkbox_value.push($(this).val());
-               });
+  
 
-             swal.fire({
-                            title: 'Konfirmasi',
-                            text: "Hapus Data Yang Dipilih?",
-                            type: 'warning',
-                            showCancelButton: true,
-                            confirmButtonText: 'Hapus',
-                            confirmButtonColor: '#FF0000',
-                            cancelButtonText: 'Batal',
-                          }).then((result) => {
-                            if (result.value) {
-                               $.ajax({
-                                url:"<?php echo base_url(); ?>admin/konseling/delete_pengajuan",
-                                method:"POST",
-                                beforeSend :function () {
-                                            swal.fire({
-                                                title: 'Menunggu',
-                                                html: 'Memproses data',
-                                                onOpen: () => {
-                                                  swal.showLoading()
-                                                }
-                                              })      
-                                         },  
-                                data:{checkbox_value:checkbox_value},
-                                success:function(data){
-                                              swal.fire(
-                                                'Berhasil',
-                                                'Data Telah Terhapus',
-                                                'success'
-                                              ).then((result) => 
-                                            {
 
-                                             reload_table_konseling();
 
-                                             })
-                                          }
-                                   })
-                                  }
-                              
-                          });
-                        }else{
-                            swal.fire(
-                                'Perhatian',
-                                'Pilih data yang akan dihapus',
-                                'warning'
-                                )
-                              }
-                    })
+  //========================report consult===========================
+  function showcatatan(){
+      var catatan = $('#inputcatatan').val();
 
-</script>
+        swal.fire({
+                title: "Catatan",
+                text: catatan,
+                confirmButtonText: 'OK',
+              })
+      }
+              
+         
+    </script>

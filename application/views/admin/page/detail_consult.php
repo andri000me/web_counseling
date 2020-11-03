@@ -127,5 +127,5 @@
 
 </div>
       <?php
-        include(APPPATH.'views/dosen/script/js_konseling.php');  
+        include(APPPATH.'views/admin/script/js_konseling.php');  
     ?>

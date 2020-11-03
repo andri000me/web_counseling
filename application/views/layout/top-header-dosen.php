@@ -57,7 +57,7 @@ $consult_notif = $this->Mnotif->getnotifconsult($no_unique);
                         <!-- ============================================================== -->
                         <!-- Comment -->
                         <!-- ============================================================== -->
-
+                        <?php if($role != 'KTA'){ ?> 
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" > <i class="mdi mdi-bell font-24 "></i>
                                 <span class="badge badge-pill  badge-danger font-10 float-right" style="margin-left: -10px; margin-top: 36%; position: relative;" id="count_consult"><!-- notif --></span>
@@ -115,6 +115,7 @@ $consult_notif = $this->Mnotif->getnotifconsult($no_unique);
                                 </ul>
                             </div>
                         </li>
+                    <?php } ?>
 
                         <?php foreach ($data as $d ) { ?>
                         <li class="nav-item dropdown">
@@ -125,10 +126,9 @@ $consult_notif = $this->Mnotif->getnotifconsult($no_unique);
                                     <div class=""><img src="<?php echo base_url().$d->photo ?>" alt="user" class="img-circle" width="60"></div>
                                     <div class="ml-2">
                                         <h4 class="mb-0"><?php echo $d->name; ?></h4>
-                                        <p class=" mb-0"><?php echo $d->email; ?></p>
                                     </div>
                                 </div>
-                                <a class="dropdown-item" href="javascript:void(0)"><i class="ti-user mr-1 ml-1"></i> My Profile</a>
+                                <a class="dropdown-item" href="<?php echo base_url('profile/profile/profile_dosen')?>"><i class="ti-user mr-1 ml-1"></i> Profil Saya</a>
                                 <a class="dropdown-item" href="<?php echo base_url('auth/logout')?>"><i class="fa fa-power-off mr-1 ml-1"></i> Logout</a>
                             </div>
                         </li>

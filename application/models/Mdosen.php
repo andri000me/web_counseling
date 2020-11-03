@@ -19,6 +19,14 @@ class Mdosen extends CI_Model {
 		return $query->result();
 	}
 
+	public function get_consult_selection(){
+		$this->db->select('*');
+		$this->db->from('ms_consult_selection as selection');		
+		$query = $this->db->get();
+		return $query->result();
+	}
+
+
 	public function get_consult_selectionbyrole($role){
 		$this->db->select('*');
 		$this->db->from('ms_consult_selection as selection');
@@ -94,6 +102,17 @@ class Mdosen extends CI_Model {
 		if($_REQUEST['length'] != -1)
 		$this->db->where('c.nidn',$nidn);
 		$this->db->where('c.id_consult_status',$id_consult_status);
+		$this->db->limit($_REQUEST['length'], $_REQUEST['start']);
+		$query = $this->db->get();
+		return $query->result();
+
+		
+	}
+
+	function ketua_get_datatables(){
+			$term = $_REQUEST['search']['value'];   
+		$this->konseling_datatables_query($term);
+		if($_REQUEST['length'] != -1)
 		$this->db->limit($_REQUEST['length'], $_REQUEST['start']);
 		$query = $this->db->get();
 		return $query->result();

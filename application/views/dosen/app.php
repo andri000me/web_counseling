@@ -4,8 +4,7 @@
     if( $this->session->userdata('username') == '' && 
         $this->session->userdata('role') == '' || 
         $this->session->userdata('role') == 'MHS' ||
-        $this->session->userdata('role') == 'ADM' ||
-        $this->session->userdata('role') == 'KTA' 
+        $this->session->userdata('role') == 'ADM'
         ) {
         redirect(base_url('auth'));
     } 

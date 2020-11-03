@@ -8,142 +8,246 @@ class Konseling extends CI_Controller {
 		parent::__construct();
 	}
 
-	public function konseling()
+	public function index()
 	{
-
+		$role = $this->session->userdata('role');
 		$data['content']			=	'admin/page/konseling';
 		$data['title']				=	'Halaman Admin - Konseling';
 		$data['page']				=	'Konseling';
+		$data['selection']			=	$this->Mdosen->get_consult_selection();
 		$this->load->view('admin/app', $data);
 		
 		}
 
-	public function pengajuan_konseling()
-	{
 
-		$data['content']			=	'admin/page/pengajuan_konsult';
-		$data['title']				=	'Halaman Admin - Pengajuan Konseling';
-		$data['page']				=	'Pengajuan Konseling';
-		$this->load->view('admin/app', $data);
-		
-		}
-	public function list_pengajuan_konseling()
-	{
-		$list = $this->Mpengajuan_konseling->pengajuan_konseling_get_datatables();
+	//=============================== konseling table ======================================
+
+	public function konseling()
+	{	
+		$nidn = $this->session->userdata('no_unique');
+		$list = $this->Madmin->konseling_get_datatables();
 		$data = array();
 		$no = $_POST['start'];
 		
 		foreach ($list as $isi) {
+			$photo_college =  base_url().$isi->photo_college;
+			$photo_staff =  base_url().$isi->photo_staff;
+			$report = base_url('admin/konseling/report_consult/').$isi->id_consult;
+			$detail_consult = base_url('admin/konseling/detail_consult/').$isi->id_consult;
 			$stat = $isi->id_consult_status;
 			if($stat == '1'){
 				$status = '<span class="label label-success mr-2">Diterima</span>';
+				$aksi = '<a class="btn btn-primary btn-sm" href="'.$report.'"><i class="fas fa-file-alt"></i> Detail</a>';
 			}else if($stat == '2'){
 				$status = '<span class="label label-primary mr-2">Progress</span>';
+				$aksi = '<a class="btn btn-primary btn-sm" href="'.$report.'"><i class="fas fa-file-alt"></i> Detail</a>';
 			}else if($stat == '3'){
 				$status = '<span class="label label-success mr-2">Selesai</span>';
+				$aksi = '<a class="btn btn-primary btn-sm" href="'.$report.'"><i class="fas fa-file-alt"></i> Detail</a>';
 			}else if($stat == '4'){
 				$status = '<span class="label label-danger mr-2">Ditolak</span>';
+				$aksi = '<a class="btn btn-primary btn-sm" href="'.$report.'"><i class="fas fa-file-alt"></i> Detail</a>';
 			}else if($stat == '5'){
 				$status = '<span class="label label-warning mr-2">Pending</span>';
+				$aksi = '<a class="btn btn-primary btn-sm" href="'.$report.'"><i class="fas fa-file-alt"></i> Detail</a>';
 			}
+
 			$str = $isi->date;
 			$time = date('d M g:i A ', strtotime($str));
 			$no++;
 			$row = array();
-			$row[] = '<div class="ml-2">
-                        <input type="checkbox" class="check_delete_pengajuan" id="check_delete_pengajuan" value="'.$isi->id_consult.'">
-                       </div>
+			$row[] = '<i class=" ti-arrow-circle-right"></i>
                         ';
-            $row[] = '<a class="text-primary "  href="javascript:void(0)" 
-						onclick="acc_pengajuan('."'".$isi->id."'".')"><i class="fas fa-eye"></i></a>';
-			$row[] = '<small>'.$isi->name;
+            $row[] = '<img src="'.$photo_staff.'" alt="user"
+			class="rounded-circle" width="30" /> '.$isi->name_staff.'';
+			$row[] = '<img src="'.$photo_college.'" alt="user"
+			class="rounded-circle" width="30" /> '.$isi->name_college.'';
 			$row[] = '<small>'.$isi->selection;
 			$row[] = '<small>'.$status;
 			$row[] = '<small>'.$time;
 
 			//add html for action
-			$row[] = '	<a class="btn btn-primary btn-sm" href="javascript:void(0)" 
-						onclick="acc_pengajuan('."'".$isi->id."'".')"><i class="fa fa-check"></i></a>
-                      	<a class="btn btn-danger btn-sm" href="javascript:void(0)" 
-                       	onclick="acc_pengajuan('."'".$isi->id."'".')"><i class="fa fa-times"></i></a>';
+			$row[] = $aksi;
 		
 			$data[] = $row;
 		}
 
 		$output = array(
 						"draw" => $_POST['draw'],
-						"recordsTotal" => $this->Mpengajuan_konseling->pengajuan_konseling_count_all(),
-						"recordsFiltered" => $this->Mpengajuan_konseling->pengajuan_konseling_count_filtered(),
+						"recordsTotal" => $this->Madmin->konseling_count_all(),
+						"recordsFiltered" => $this->Madmin->konseling_count_filtered(),
 						"data" => $data,
 				);
 		//output to json format
 		echo json_encode($output);
 	}
 
-	public function orderby_pengajuan()
+	public function filterby()
 	{	
-		$id = $this->input->post('id');
-		$list = $this->Mpengajuan_konseling->orderby_pengajuan_get_datatables($id);
+		$kode_selection = $this->input->post('kode_selection');
+		$nidn = $this->session->userdata('no_unique');
+		$list = $this->Madmin->filterby_get_datatables($kode_selection);
 		$data = array();
 		$no = $_POST['start'];
 		
 		foreach ($list as $isi) {
+			$photo_college =  base_url().$isi->photo_college;
+			$photo_staff =  base_url().$isi->photo_staff;
+			$report = base_url('admin/konseling/report_consult/').$isi->id_consult;
+			$detail_consult = base_url('admin/konseling/detail_consult/').$isi->id_consult;
 			$stat = $isi->id_consult_status;
 			if($stat == '1'){
 				$status = '<span class="label label-success mr-2">Diterima</span>';
+				$aksi = '<a class="btn btn-primary btn-sm" href="'.$report.'"><i class="fas fa-file-alt"></i> Detail</a>';
 			}else if($stat == '2'){
 				$status = '<span class="label label-primary mr-2">Progress</span>';
+				$aksi = '<a class="btn btn-primary btn-sm" href="'.$report.'"><i class="fas fa-file-alt"></i> Detail</a>';
 			}else if($stat == '3'){
 				$status = '<span class="label label-success mr-2">Selesai</span>';
+				$aksi = '<a class="btn btn-primary btn-sm" href="'.$report.'"><i class="fas fa-file-alt"></i> Detail</a>';
 			}else if($stat == '4'){
 				$status = '<span class="label label-danger mr-2">Ditolak</span>';
+				$aksi = '<a class="btn btn-primary btn-sm" href="'.$report.'"><i class="fas fa-file-alt"></i> Detail</a>';
 			}else if($stat == '5'){
 				$status = '<span class="label label-warning mr-2">Pending</span>';
+				$aksi = '<a class="btn btn-primary btn-sm" href="'.$report.'"><i class="fas fa-file-alt"></i> Detail</a>';
 			}
+
 			$str = $isi->date;
-			$time = date('g:i A', strtotime($str));
+			$time = date('d M g:i A ', strtotime($str));
 			$no++;
 			$row = array();
-			$row[] = '<div class="ml-2">
-                        <input type="checkbox" class="check_delete_pengajuan" id="check_delete_pengajuan" value="'.$isi->id_consult.'">
-                      </div>
+			$row[] = '<i class=" ti-arrow-circle-right"></i>
                         ';
-            $row[] = '<a class="text-primary "  href="javascript:void(0)" 
-						onclick="acc_pengajuan('."'".$isi->id."'".')"><i class="fas fa-eye"></i></a>';
-			$row[] = '<small>'.$isi->name;
+            $row[] = '<img src="'.$photo_staff.'" alt="user"
+			class="rounded-circle" width="30" /> '.$isi->name_staff.'';
+			$row[] = '<img src="'.$photo_college.'" alt="user"
+			class="rounded-circle" width="30" /> '.$isi->name_college.'';
 			$row[] = '<small>'.$isi->selection;
 			$row[] = '<small>'.$status;
 			$row[] = '<small>'.$time;
 
 			//add html for action
-			$row[] = ' <a class="btn btn-primary btn-sm" href="javascript:void(0)" 
-						onclick="acc_pengajuan('."'".$isi->id."'".')"><i class="fa fa-check"></i></a>
-                       <a class="btn btn-danger btn-sm" href="javascript:void(0)" 
-                       	onclick="acc_pengajuan('."'".$isi->id."'".')"><i class="fa fa-times"></i></a>';
+			$row[] = $aksi;
 		
 			$data[] = $row;
 		}
 
 		$output = array(
 						"draw" => $_POST['draw'],
-						"recordsTotal" => $this->Mpengajuan_konseling->pengajuan_konseling_count_all(),
-						"recordsFiltered" => $this->Mpengajuan_konseling->pengajuan_konseling_count_filtered(),
+						"recordsTotal" => $this->Madmin->konseling_count_all(),
+						"recordsFiltered" => $this->Madmin->konseling_count_filtered(),
 						"data" => $data,
 				);
 		//output to json format
 		echo json_encode($output);
 	}
 
-	function delete_pengajuan()
+	public function status_consult()
+	{	
+
+		$id_consult_status = $this->input->post('id_consult_status');
+		$nidn = $this->session->userdata('no_unique');
+		$list = $this->Madmin->status_get_datatables($id_consult_status);
+		$data = array();
+		$no = $_POST['start'];
+		
+		foreach ($list as $isi) {
+			$photo_college =  base_url().$isi->photo_college;
+			$photo_staff =  base_url().$isi->photo_staff;
+			$report = base_url('admin/konseling/report_consult/').$isi->id_consult;
+			$detail_consult = base_url('admin/konseling/detail_consult/').$isi->id_consult;
+			$stat = $isi->id_consult_status;
+			if($stat == '1'){
+				$status = '<span class="label label-success mr-2">Diterima</span>';
+				$aksi = '<a class="btn btn-primary btn-sm" href="'.$report.'"><i class="fas fa-file-alt"></i> Detail</a>';
+			}else if($stat == '2'){
+				$status = '<span class="label label-primary mr-2">Progress</span>';
+				$aksi = '<a class="btn btn-primary btn-sm" href="'.$report.'"><i class="fas fa-file-alt"></i> Detail</a>';
+			}else if($stat == '3'){
+				$status = '<span class="label label-success mr-2">Selesai</span>';
+				$aksi = '<a class="btn btn-primary btn-sm" href="'.$report.'"><i class="fas fa-file-alt"></i> Detail</a>';
+			}else if($stat == '4'){
+				$status = '<span class="label label-danger mr-2">Ditolak</span>';
+				$aksi = '<a class="btn btn-primary btn-sm" href="'.$report.'"><i class="fas fa-file-alt"></i> Detail</a>';
+			}else if($stat == '5'){
+				$status = '<span class="label label-warning mr-2">Pending</span>';
+				$aksi = '<a class="btn btn-primary btn-sm" href="'.$report.'"><i class="fas fa-file-alt"></i> Detail</a>';
+			}
+
+			$str = $isi->date;
+			$time = date('d M g:i A ', strtotime($str));
+			$no++;
+			$row = array();
+			$row[] = '<i class=" ti-arrow-circle-right"></i>
+                        ';
+            $row[] = '<img src="'.$photo_staff.'" alt="user"
+			class="rounded-circle" width="30" /> '.$isi->name_staff.'';
+			$row[] = '<img src="'.$photo_college.'" alt="user"
+			class="rounded-circle" width="30" /> '.$isi->name_college.'';
+			$row[] = '<small>'.$isi->selection;
+			$row[] = '<small>'.$status;
+			$row[] = '<small>'.$time;
+
+			//add html for action
+			$row[] = $aksi;
+		
+			$data[] = $row;
+		}
+
+		$output = array(
+						"draw" => $_POST['draw'],
+						"recordsTotal" => $this->Madmin->konseling_count_all(),
+						"recordsFiltered" => $this->Madmin->konseling_count_filtered(),
+						"data" => $data,
+				);
+		//output to json format
+		echo json_encode($output);
+	}
+
+
+	//======================== report detail delete =============================
+	//==================== detail konslutasi ========================
+	public function detail_consult($id_consult){
+
+		$data['detail_consult']		=	$this->Madmin->detail_consult($id_consult);
+		$data['content']			=	'admin/page/detail_consult';
+		$data['title']				=	'Halaman Konseling';
+		$data['page']				=	'Detail Konsultasi';
+		$this->load->view('admin/app', $data);
+	}
+	//end
+
+	function delete_konseling()
 	{
 	  if($this->input->post('checkbox_value')){
 
 	  	 	$id = $this->input->post('checkbox_value');
 	   		for($count = 0; $count < count($id); $count++) {
-			    $this->Mpengajuan_konseling->delete_pengajuan($id[$count]);
-			   }
+			    $this->Madmin->delete_konseling($id[$count]);
+			}
 	  }
-	 }
+	}
+
+	public function report_consult($id){
+
+		$data['report_consult']		=	$this->Madmin->report_consult($id);
+		$data['file']				= 	$this->Madmin->get_file($id);
+		$data['content']			=	'admin/page/report_consult';
+		$data['title']				=	'Halaman Konseling';
+		$data['page']				=	'Rekap Hasil Konseling';
+		$this->load->view('admin/app', $data);
+	}
+
+	public function historychatpdf($id_consult){
+		$data['data'] 		= $this->Madmin->get_historychat($id_consult);
+	    $this->load->library('pdf');
+	    $customPaper = array(0,0,381.89,595.28);
+	    $this->pdf->setPaper($customPaper, 'landscape');
+	    $this->pdf->load_view('admin/report/result_consult_pdf', $data);
+	}
+
+
 
 	 //============================= perwalian mahasiswa ==================================
 
@@ -154,21 +258,21 @@ class Konseling extends CI_Controller {
 		$data['content']			=	'admin/page/perwalian';
 		$data['title']				=	'Halaman Admin - Perwalian';
 		$data['page']				=	'Perwalian Mahasiswa';
-		$data['count_college']		=	$this->Mkonseling->count_college();
-		$data['count_dosen']		=	$this->Mkonseling->count_dosen();
+		$data['count_college']		=	$this->Madmin->count_college();
+		$data['count_dosen']		=	$this->Madmin->count_dosen();
 		$this->load->view('admin/app', $data);
 		
 		}
 
 	public function list_perwalian()
 	{
-		$list = $this->Mkonseling->perwalian_get_datatables();
+		$list = $this->Madmin->perwalian_get_datatables();
 		$data = array();
 		$url =  base_url();
 		$no = $_POST['start'];
 		foreach ($list as $isi) {
-			$wali_dosen = $isi->nidn;
-			$count_perwali = $this->Mkonseling->count_perwali($wali_dosen);
+			$wali_admin = $isi->nidn;
+			$count_perwali = $this->Madmin->count_perwali($wali_admin);
 			$base_url =  base_url().$isi->photo;
 			$no++;
 			$row = array();
@@ -189,8 +293,8 @@ class Konseling extends CI_Controller {
 
 		$output = array(
 						"draw" => $_POST['draw'],
-						"recordsTotal" => $this->Mkonseling->perwalian_count_all(),
-						"recordsFiltered" => $this->Mkonseling->perwalian_count_filtered(),
+						"recordsTotal" => $this->Madmin->perwalian_count_all(),
+						"recordsFiltered" => $this->Madmin->perwalian_count_filtered(),
 						"data" => $data,
 				);
 		//output to json format
@@ -200,7 +304,7 @@ class Konseling extends CI_Controller {
 	//========== select perwalianj ====================
 	public function select_wali($nidn)
 	{	
-		$user_staff = $this->Mkonseling->get_staff_detail($nidn);
+		$user_staff = $this->Madmin->get_staff_detail($nidn);
 		foreach ($user_staff as $user) {
 			$prod = $user->id_prodi;
 			$nidn = $user->nidn;
@@ -208,9 +312,9 @@ class Konseling extends CI_Controller {
 		$data['content']			=	'admin/page/select_wali';
 		$data['title']				=	'Halaman Admin - Perwalian';
 		$data['page']				=	'Pemilihan Perwalian';
-		$data['staff']				=	$this->Mkonseling->get_staff_detail($nidn);
-		$data['college_unselect']	=	$this->Mkonseling->get_college_unselect($prod,$nidn);
-		$data['college_selected']	=	$this->Mkonseling->get_college_selected($nidn);
+		$data['staff']				=	$this->Madmin->get_staff_detail($nidn);
+		$data['college_unselect']	=	$this->Madmin->get_college_unselect($prod,$nidn);
+		$data['college_selected']	=	$this->Madmin->get_college_selected($nidn);
 		$this->load->view('admin/app', $data);
 		
 		}
@@ -221,11 +325,11 @@ class Konseling extends CI_Controller {
 	  	 	$nim = $this->input->post('nim');
 	  	 	$not_nim = $this->input->post('not_nim');
 	  	 	for($count = 0; $count < count($nim); $count++) {
-			    $this->Mkonseling->proses_selected_college($nim[$count],$nidn);
+			    $this->Madmin->proses_selected_college($nim[$count],$nidn);
 			   }
 	  
 	  	 	for($count = 0; $count < count($not_nim); $count++) {
-			    $this->Mkonseling->proses_notselected_college($not_nim[$count],$nidn);
+			    $this->Madmin->proses_notselected_college($not_nim[$count],$nidn);
 			   }
 	   		
 	}

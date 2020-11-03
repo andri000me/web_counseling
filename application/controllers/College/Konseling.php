@@ -107,14 +107,10 @@ class Konseling extends CI_Controller {
 				$aksi = '<a class="btn btn-primary btn-sm" href="'.$report.'"><i class="fas fa-file-alt"></i> Lihat Hasil</a>';
 			}else if($stat == '4'){
 				$status = '<span class="label label-danger mr-2">Ditolak</span>';
-				$aksi = '<a data-id="'.$isi->id_consult.'" class="btn btn-danger btn-sm acc_konseling" href="javascript:void(0)" 
-						onclick="acc_konseling(5)">Batalkan</a>';
+				$aksi = '';
 			}else if($stat == '5'){
 				$status = '<span class="label label-warning mr-2">Pending</span>';
-				$aksi = '<a data-id="'.$isi->id_consult.'" class="btn btn-primary btn-sm acc_konseling" href="javascript:void(0)" 
-						onclick="acc_konseling(1)">Terima</a>
-						<a data-id="'.$isi->id_consult.'" class="btn btn-danger btn-sm acc_konseling" href="javascript:void(0)" 
-						onclick="acc_konseling(4)">Tolak</a>';
+				$aksi = '';
 			}
 
 			$str = $isi->date;
@@ -175,14 +171,10 @@ class Konseling extends CI_Controller {
 				$aksi = '<a class="btn btn-primary btn-sm" href="'.$report.'"><i class="fas fa-file-alt"></i> Lihat Hasil</a>';
 			}else if($stat == '4'){
 				$status = '<span class="label label-danger mr-2">Ditolak</span>';
-				$aksi = '<a data-id="'.$isi->id_consult.'" class="btn btn-danger btn-sm acc_konseling" href="javascript:void(0)" 
-						onclick="acc_konseling(5)">Batalkan</a>';
+				$aksi = '';
 			}else if($stat == '5'){
 				$status = '<span class="label label-warning mr-2">Pending</span>';
-				$aksi = '<a data-id="'.$isi->id_consult.'" class="btn btn-primary btn-sm acc_konseling" href="javascript:void(0)" 
-						onclick="acc_konseling(1)">Terima</a>
-						<a data-id="'.$isi->id_consult.'" class="btn btn-danger btn-sm acc_konseling" href="javascript:void(0)" 
-						onclick="acc_konseling(4)">Tolak</a>';
+				$aksi = '';
 			}
 
 			$str = $isi->date;
@@ -477,6 +469,16 @@ class Konseling extends CI_Controller {
 	    $customPaper = array(0,0,381.89,595.28);
 	    $this->pdf->setPaper($customPaper, 'landscape');
 	    $this->pdf->load_view('college/report/result_consult_pdf', $data);
+	}
+
+	//==================== detail konslutasi ========================
+	public function detail_consult($id_consult){
+
+		$data['detail_consult']		=	$this->Mcollege->detail_consult($id_consult);
+		$data['content']			=	'college/page/detail_consult';
+		$data['title']				=	'Halaman Konseling';
+		$data['page']				=	'Detail Konsultasi';
+		$this->load->view('college/app', $data);
 	}
 
 }

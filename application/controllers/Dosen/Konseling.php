@@ -619,6 +619,83 @@ class Konseling extends CI_Controller {
 	    $this->pdf->setPaper($customPaper, 'landscape');
 	    $this->pdf->load_view('dosen/report/result_consult_pdf', $data);
 	}
+
+
+
+	//Ketua konsult
+
+	public function ketua_consult()
+	{
+		
+		$data['content']			=	'dosen/page/konseling_ketua';
+		$data['title']				=	'Halaman Konseling';
+		$data['page']				=	'Report Konseling';
+		$data['selection']			=	$this->Mdosen->get_consult_selection();
+		$this->load->view('dosen/app', $data);
+		
+	}
+
+	public function list_table_ketua()
+	{	
+		$nidn = $this->session->userdata('no_unique');
+		$list = $this->Mdosen->ketua_get_datatables();
+		$data = array();
+		$no = $_POST['start'];
+		
+		foreach ($list as $isi) {
+			$photo_college =  base_url().$isi->photo_college;
+			$photo_staff =  base_url().$isi->photo_staff;
+			$report = base_url('dosen/konseling/report_consult/').$isi->id_consult;
+			$detail_consult = base_url('dosen/konseling/detail_consult/').$isi->id_consult;
+			$stat = $isi->id_consult_status;
+			if($stat == '1'){
+				$status = '<span class="label label-success mr-2">Diterima</span>';
+				$aksi = '<a class="btn btn-primary btn-sm" href="'.$report.'"><i class="fas fa-file-alt"></i> Detail</a>';
+			}else if($stat == '2'){
+				$status = '<span class="label label-primary mr-2">Progress</span>';
+				$aksi = '<a class="btn btn-primary btn-sm" href="'.$report.'"><i class="fas fa-file-alt"></i> Detail</a>';
+			}else if($stat == '3'){
+				$status = '<span class="label label-success mr-2">Selesai</span>';
+				$aksi = '<a class="btn btn-primary btn-sm" href="'.$report.'"><i class="fas fa-file-alt"></i> Detail</a>';
+			}else if($stat == '4'){
+				$status = '<span class="label label-danger mr-2">Ditolak</span>';
+				$aksi = '<a class="btn btn-primary btn-sm" href="'.$report.'"><i class="fas fa-file-alt"></i> Detail</a>';
+			}else if($stat == '5'){
+				$status = '<span class="label label-warning mr-2">Pending</span>';
+				$aksi = '<a class="btn btn-primary btn-sm" href="'.$report.'"><i class="fas fa-file-alt"></i> Detail</a>';
+			}
+
+			$str = $isi->date;
+			$time = date('d M g:i A ', strtotime($str));
+			$no++;
+			$row = array();
+			$row[] = '<i class=" ti-arrow-circle-right"></i>
+                        ';
+			$row[] = '<img src="'.$photo_college.'" alt="user"
+			class="rounded-circle" width="30" /> '.$isi->name_college.'';
+			$row[] = '<img src="'.$photo_staff.'" alt="user"
+			class="rounded-circle" width="30" /> '.$isi->name_staff.'';
+			$row[] = '<small>'.$isi->selection;
+			$row[] = '<small>'.$status;
+			$row[] = '<small>'.$time;
+
+			//add html for action
+			$row[] = $aksi;
+		
+			$data[] = $row;
+		}
+
+		$output = array(
+						"draw" => $_POST['draw'],
+						"recordsTotal" => $this->Mdosen->konseling_count_all(),
+						"recordsFiltered" => $this->Mdosen->konseling_count_filtered(),
+						"data" => $data,
+				);
+		//output to json format
+		echo json_encode($output);
+	}
+
+
 	
 
 
