@@ -104,7 +104,7 @@ class Profile extends CI_Controller {
 	             	{
 								$data = array(
 										'username' => $this->input->post('username'),
-										'password' => $this->input->post('password'),
+										'password' => sha1($this->input->post('password',TRUE)),
 									);
 		$this->Mprofile->change_auth($data,$no_unique);
 		echo json_encode(array("success" => TRUE));
