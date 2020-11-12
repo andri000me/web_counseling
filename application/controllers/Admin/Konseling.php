@@ -321,7 +321,7 @@ class Konseling extends CI_Controller {
 
 	public function proses_selected(){
 		
-					$nidn = $this->input->post('nidn');
+			$nidn = $this->input->post('nidn');
 	  	 	$nim = $this->input->post('nim');
 	  	 	$not_nim = $this->input->post('not_nim');
 	  	 	for($count = 0; $count < count($nim); $count++) {

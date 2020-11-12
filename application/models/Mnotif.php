@@ -39,4 +39,16 @@ class Mnotif extends CI_Model {
 		$this->db->update('ms_consult');
 	}
 
+
+	// message
+
+	public function count_message(){ //term is value of $_REQUEST['search']['value']
+		
+		$this->db->select('*');
+		$this->db->from('ms_consult_chat as chat');
+		$this->db->order_by('chat.id','DESC');
+		$query = $this->db->get();
+		return $query->num_rows();
+	}
+
 }

@@ -77,7 +77,7 @@
                                 <label class="custom-control-label" for="cstall">Pilih Semua</label>
                             </div>
                         </div>
-                        <div class="btn-group mt-1 mb-1 col-md-6">
+                        <div class="btn-group mt-1 mb-1 col-md-4">
                                   <div class="input-group-prepend">
                                     <span class="input-group-text" id="inputGroup-sizing-default"><i class="fa fa-search"></i></span>
                                   </div>
@@ -90,6 +90,7 @@
                             </div>
                             <div class="btn-group mr-2" role="group" aria-label="Button group with nested dropdown">
                                 <div class="btn-group" role="group">
+                                      <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#modalreport"><i class="mdi mdi-import"></i> Report Konseling</button>
                                     <button id="btnGroupDrop1" type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="mdi mdi-reorder-horizontal font-18"></i> Jenis Konseling </button>
                                     <div class="dropdown-menu" aria-labelledby="btnGroupDrop1"> 
                                         <a type="button" href="" class="dropdown-item" >Semua</a> 
@@ -132,6 +133,10 @@
         <!-- End Page wrapper  -->
         <!-- ============================================================== -->
 
+         
+
     <?php
+        include(APPPATH.'views/dosen/page/modal_report.php'); 
+        include(APPPATH.'views/report/js_report.php'); 
         include(APPPATH.'views/dosen/script/js_konseling.php');  
     ?>

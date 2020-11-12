@@ -73,7 +73,7 @@ $(function() {
     // ============================================================== 
 
     var chart = c3.generate({
-        bindto: '#visitor',
+        bindto: '#a',
         data: {
             columns: [
                 ['Open', 45],

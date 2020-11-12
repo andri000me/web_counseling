@@ -44,6 +44,8 @@ $role = $this->session->userdata('role');
                         </li>
 
                         <?php } ?>
+                         <li class="sidebar-item"><a href="<?php echo base_url('article/article')?>" class="sidebar-link  waves-dark" aria-expanded="false"><i class="mdi mdi-newspaper"></i><span class="hide-menu">Artikel</span></a>
+                        </li>
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->

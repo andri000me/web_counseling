@@ -6,6 +6,7 @@ class Muser extends CI_Model {
 	var $table = 'ms_users_staff';
 	var $table_college = 'ms_users_college';
 	var $order = array('u.id' => 'desc'); // default order 
+	var $order_college = array('u.nim' => 'ASC');
 
 	public function __construct()
 	{
@@ -112,6 +113,11 @@ class Muser extends CI_Model {
 		$this->db->where('no_unique', $nidn);
 		$this->db->delete('ms_auth');
 	}
+	public function delete_wali($nidn,$data)
+	{
+		$this->db->where('id_wali', $nidn);
+		$this->db->update('ms_users_college',$data);
+	}
 
 	function get_role_staff(){
         $this->db->where('ms_role.id !=', '6');
@@ -168,9 +174,9 @@ class Muser extends CI_Model {
 		{
 		   $this->db->order_by($column[$_REQUEST['order']['0']['column']], $_REQUEST['order']['0']['dir']);
 		} 
-		else if(isset($this->order))
+		else if(isset($this->order_college))
 		{
-		   $order = $this->order;
+		   $order = $this->order_college;
 		   $this->db->order_by(key($order), $order[key($order)]);
 		}
 	}

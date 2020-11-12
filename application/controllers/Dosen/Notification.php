@@ -18,4 +18,13 @@ class Notification extends CI_Controller {
 		echo json_encode($data);
 	}
 
+	public function count_message()
+	{
+		$nidn = $this->session->userdata('no_unique');
+		$count_message = $this->Mnotif->count_message();
+		$data['count_message']		= 	$count_message;
+
+		echo json_encode($data);
+	}
+
 }

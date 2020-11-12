@@ -1,18 +1,27 @@
 
     <div class="page-wrapper"> 
         <div class="page-breadcrumb">
-            <div class="col-5 align-self-center">
-                <h4 class="page-title"><?php echo $page ?></h4>
-                <div class="d-flex align-items-center">
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item active">Konseling</li>
-                            <li class="breadcrumb-item"><a href="javascript:void(0)" onclick="window.history.go(-1); return false;">Aktifitas Konseling</a></li>
-                            <li class="breadcrumb-item"><a href=""><?php echo $page ?></a></li>
-                        </ol>
-                    </nav>
+            <div class="row">
+                <div class="col-5 align-self-center">
+                    <h4 class="page-title"><?php echo $page ?></h4>
+                    <div class="d-flex align-items-center">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item active">Konseling</li>
+                                <li class="breadcrumb-item"><a href="javascript:void(0)" onclick="window.history.go(-1); return false;">Aktifitas Konseling</a></li>
+                                <li class="breadcrumb-item"><a href=""><?php echo $page ?></a></li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+                <?php foreach ($report_consult as $href) { ?>
+                <div class="col-7 align-self-center">
+                    <div class="d-flex no-block justify-content-end align-items-center">
+                        <a href="<?php echo base_url('report/report/report_hasil_consult/'.$href->id_consult)?>" class="btn btn-primary"><i class="mdi mdi-export"></i> Buat Rekap</a>
+                    </div>
                 </div>
             </div>
+            <?php } ?>
         </div>
         <div class="container-fluid">
                   <div class="card-columns widget-app-columns">
@@ -90,7 +99,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <h5 >Rekap Chat</h5>
-                                <a href="<?php echo base_url('dosen/konseling/historychatpdf/').$user->id_consult ?>"  class="label label-primary text-white"><i class="fa fa-download"></i> Unduh</a>
+                                <a href="<?php echo base_url('report/report/report_consult_chat/').$user->id_consult ?>"  class="label label-primary text-white"><i class="fa fa-download"></i> Unduh</a>
                                 <h5 class="m-t-30">Catatan Dari Konselor</h5>
                                  <a href="javascript:void(0)" onclick="showcatatan();"  class="label label-primary text-white"><i class="fa fa-file"> </i> Lihat Catatan</a>
                                 <input type="hidden" id="inputcatatan" value="<?php echo $user->catatan ?>">

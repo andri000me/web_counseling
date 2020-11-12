@@ -249,6 +249,8 @@ class User extends CI_Controller {
 	
 	public function delete_user($nidn)
 	{
+		$data = array('id_wali' => '', );
+		$this->Muser->delete_wali($nidn,$data);
 		$this->Muser->delete_user($nidn);
 		echo json_encode(array("status" => TRUE));
 	}

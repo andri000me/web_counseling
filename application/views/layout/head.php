@@ -16,11 +16,17 @@
      <!-- sweetalert -->
     <link href="<?php echo base_url()?>assets/assets/libs/sweetalert2/dist/sweetalert2.min.css" rel="stylesheet">
     <!-- konseling -->
-    
     <link href="<?php echo base_url()?>assets/assets/libs/summernote/dist/summernote-bs4.css" rel="stylesheet">
     <link href="<?php echo base_url()?>assets/assets/libs/dropzone/dist/min/dropzone.min.css" rel="stylesheet">
     <link href="<?php echo base_url()?>assets/assets/libs/toastr/build/toastr.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>assets/assets/libs/bootstrap-duallistbox/dist/bootstrap-duallistbox.min.css">
+
+    <!--chartis chart-->
+    <link href="<?php echo base_url()?>assets/assets/libs/chartist/dist/chartist.min.css" rel="stylesheet">
+    <link href="<?php echo base_url()?>assets/assets/extra-libs/c3/c3.min.css" rel="stylesheet">
+
+    <link href="<?php echo base_url()?>assets/assets/extra-libs/horizontal-timeline/horizontal-timeline.css" rel="stylesheet">
+    
 
     <style type="text/css">
         .dual-list{

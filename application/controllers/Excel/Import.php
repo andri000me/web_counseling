@@ -49,6 +49,17 @@ $spreadsheet->setActiveSheetIndex(0)
 ->setCellValue('F1', 'NO TELEPON')
 ->setCellValue('G1', 'JENIS KELAMIN')
 ->setCellValue('H1', 'HAK AKSES')
+
+->setCellValue('L1', 'KODE PRODI')
+->setCellValue('L2', '12 : Teknik Informatika')
+->setCellValue('L3', '32 : Sistem Informasi')
+->setCellValue('L4', '99 : Non Prodi')
+
+->setCellValue('O1', 'HAK AKSES')
+->setCellValue('O2', 'ADM : ADMIN')
+->setCellValue('O3', 'KTA : KETUA')
+->setCellValue('O4', 'DSN : DOSEN WALI')
+->setCellValue('O5', 'BKU : KEUANGAN')
 ;
 
 
@@ -212,7 +223,7 @@ public function import_data_college(){
                       $angkatan = '20'.$ang;
                                 if($numrow > 1){
                                     array_push($data,  array(
-                                        'nim'              =>  $row['B'],
+                                        'nim'              =>  $nim,
                                         'name'              =>  $row['C'],
                                         'id_prodi'          =>  $prodi,
                                         'generation'        =>  $angkatan,
@@ -222,9 +233,9 @@ public function import_data_college(){
 
                                     ));
                                      array_push($auth,  array(
-                                        'no_unique'             =>  $row['B'],
-                                        'username'              =>  $row['B'],
-                                        'password'              =>  sha1($row['B']),
+                                        'no_unique'             =>  $nim,
+                                        'username'              =>  $nim,
+                                        'password'              =>  sha1($nim),
                                         'role'             =>  'MHS',
 
                                     ));

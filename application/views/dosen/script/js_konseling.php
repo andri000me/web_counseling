@@ -210,57 +210,7 @@
                      
          })
 
-     //status consult table
-     $('.notif_consult').on('click', function () {
-        $(".table_konseling").dataTable().fnDestroy();
-        var id_consult = $(this).attr("data-id");
-        var namepage = $(this).attr("label");
-        $(".status_consult").removeClass("active");
-        $("#status_terbaru").addClass("active");
-
-        $("#page").html('<i class="mdi mdi-chevron-right"></i> '+namepage);
-         table_konseling = $('.table_konseling').DataTable({
-             createdRow: function( row, data, dataIndex ) {
-                $(row).find('td').addClass('max-texts');
-            },
-            "bLengthChange": false,
-            "bFilter": true,
-            "bInfo": false,
-            "bAutoWidth": false,
-            "ordering": false,
-            "processing": true, 
-            "serverSide": true,
-            "order": [], 
-           
-            "ajax": {
-                "url": "<?php echo base_url('dosen/konseling/notif_consult')?>",
-                "type": "POST",
-                "data": {id_consult:id_consult},
-            },
-
-            "columnDefs": [
-            { 
-                "targets": [ -1 ], 
-                "orderable": false, 
-
-            },
-            ],
-
-            "oLanguage": {
-            "sZeroRecords": "Tidak ada data yang tersedia"
-            },
-            "fnInitComplete": function ( oSettings ) {
-            oSettings.oLanguage.sZeroRecords = "Data tidak ditemukan"
-            }
-
-         });
-           $("#table_konseling_filter").detach()
-           $('#search_konseling').keyup(function(){
-                  table_konseling.search($(this).val()).draw();
-            })
-
-                     
-         })
+    
 
      //reload table
     function reload_table_konseling(e) {

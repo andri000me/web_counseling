@@ -52,11 +52,10 @@ $data = $this->db->query("SELECT * FROM ms_users_college WHERE nim = $no_unique 
                     <!-- ============================================================== -->
                     <ul class="navbar-nav float-right">
                         <!-- ============================================================== -->
-                        <!-- Messages -->
-                        <!-- ============================================================== -->
+                        <!-- Messages 
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" id="2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="font-24 mdi mdi-comment-processing"></i>
-                                
+                              <span class="badge badge-pill  badge-danger font-10 float-right" style="margin-left: -10px; margin-top: 36%; position: relative;" id="count_consult">3</span>   
                             </a>
                             <div class="dropdown-menu dropdown-menu-right mailbox animated bounceInDown" aria-labelledby="2">
                                 <span class="with-arrow"><span class="bg-danger"></span></span>
@@ -69,29 +68,11 @@ $data = $this->db->query("SELECT * FROM ms_users_college WHERE nim = $no_unique 
                                     </li>
                                     <li>
                                         <div class="message-center message-body">
-                                            <!-- Message -->
+
                                             <a href="javascript:void(0)" class="message-item">
                                                 <span class="user-img"> <img src="<?php echo base_url()?>assets/assets/images/users/1.jpg" alt="user" class="rounded-circle"> <span class="profile-status online pull-right"></span> </span>
                                                 <div class="mail-contnet">
                                                     <h5 class="message-title">Pavan kumar</h5> <span class="mail-desc">Just see the my admin!</span> <span class="time">9:30 AM</span> </div>
-                                            </a>
-                                            <!-- Message -->
-                                            <a href="javascript:void(0)" class="message-item">
-                                                <span class="user-img"> <img src="<?php echo base_url()?>assets/assets/images/users/2.jpg" alt="user" class="rounded-circle"> <span class="profile-status busy pull-right"></span> </span>
-                                                <div class="mail-contnet">
-                                                    <h5 class="message-title">Sonu Nigam</h5> <span class="mail-desc">I've sung a song! See you at</span> <span class="time">9:10 AM</span> </div>
-                                            </a>
-                                            <!-- Message -->
-                                            <a href="javascript:void(0)" class="message-item">
-                                                <span class="user-img"> <img src="<?php echo base_url()?>assets/assets/images/users/3.jpg" alt="user" class="rounded-circle"> <span class="profile-status away pull-right"></span> </span>
-                                                <div class="mail-contnet">
-                                                    <h5 class="message-title">Arijit Sinh</h5> <span class="mail-desc">I am a singer!</span> <span class="time">9:08 AM</span> </div>
-                                            </a>
-                                            <!-- Message -->
-                                            <a href="javascript:void(0)" class="message-item">
-                                                <span class="user-img"> <img src="<?php echo base_url()?>assets/assets/images/users/4.jpg" alt="user" class="rounded-circle"> <span class="profile-status offline pull-right"></span> </span>
-                                                <div class="mail-contnet">
-                                                    <h5 class="message-title">Pavan kumar</h5> <span class="mail-desc">Just see the my admin!</span> <span class="time">9:02 AM</span> </div>
                                             </a>
                                         </div>
                                     </li>
@@ -101,6 +82,7 @@ $data = $this->db->query("SELECT * FROM ms_users_college WHERE nim = $no_unique 
                                 </ul>
                             </div>
                         </li>
+                        -->
                         <!-- ============================================================== -->
                         <!-- End Messages -->
                         <!-- ============================================================== -->
@@ -119,7 +101,7 @@ $data = $this->db->query("SELECT * FROM ms_users_college WHERE nim = $no_unique 
                                         <h4 class="mb-0"><?php echo $d->name; ?></h4>
                                     </div>
                                 </div>
-                                <a class="dropdown-item" href="javascript:void(0)"><i class="ti-user mr-1 ml-1"></i> My Profile</a>
+                                <a class="dropdown-item" href="<?php echo base_url('profile/profile/profile_college')?>"><i class="ti-user mr-1 ml-1"></i> My Profile</a>
                                 <a class="dropdown-item" href="<?php echo base_url('auth/logout')?>"><i class="fa fa-power-off mr-1 ml-1"></i> Logout</a>
                             </div>
                         </li>

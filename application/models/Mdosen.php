@@ -46,6 +46,7 @@ class Mdosen extends CI_Model {
 		$this->db->group_start();
 		$this->db->like('c.id', $term);
 		$this->db->or_like('c.nidn', $term);
+		$this->db->or_like('c.nim', $term);
 		$this->db->or_like('s.status_consult', $term);
 		$this->db->or_like('college.name', $term);
 		$this->db->or_like('c.date', $term);

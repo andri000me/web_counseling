@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url()?>assets/assets/images/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url()?>assets/assets/images/logo/stmik.png">
     <title><?php echo $title ?></title>
     <!-- Custom CSS -->
     <link href="<?php echo base_url()?>assets/dist/css/style.min.css" rel="stylesheet">
@@ -43,7 +43,7 @@
             <div class="auth-box">
                 <div id="loginform">
                     <div class="logo">
-                        <span class="db"><img src="<?php echo base_url()?>assets/assets/images/logo-icon.png" alt="logo" /></span>
+                        <span class="db"><img src="<?php echo base_url()?>assets/assets/images/logo/stmik.png" alt="logo" width="70"/></span>
                         <h5 class="mt-1 mb-3">HALAMAN LOGIN</h5>
                     </div>
                     <!-- Form -->
@@ -61,7 +61,7 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="basic-addon2"><i class="ti-pencil"></i></span>
                                     </div>
-                                    <input type="text" class="form-control form-control-lg" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" name="password" id="password">
+                                    <input type="password" class="form-control form-control-lg" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" name="password" id="password">
                                     <div class="invalid-feedback errorpassword"></div>
                                 </div>
                                 <div class="form-group row">
@@ -76,7 +76,7 @@
                                 <div class="row">
                                     <div class="col-xs-12 col-sm-12 col-md-12 mt-2 text-center">
                                         <div class="social">
-                                            <a href="javascript:void(0)" class="btn  btn-facebook" data-toggle="tooltip" title="" data-original-title="Login with Facebook"> <i aria-hidden="true" class="fa  fa-globe"></i> </a>
+                                            <a href="<?php echo base_url('front/home')?>" class="btn  btn-facebook" data-toggle="tooltip" title="" data-original-title="Kembali Ke Halaman Awal"> <i aria-hidden="true" class="fa  fa-globe"></i> </a>
                                         </div>
                                     </div>
                                 </div>

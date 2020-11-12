@@ -11,6 +11,7 @@ class Dashboard extends CI_Controller {
 		$data['content']			=	'college/page/dashboard';
 		$data['title']				=	'Halaman Mahasiswa - Dashboard';
 		$data['user']				= 	$this->Mcollege->get_user($sess_no);
+		$data['last_consult']		= 	$this->Mcollege->get_last_consult($sess_no);
 		$this->load->view('college/app', $data);
 
 	}

@@ -1,21 +1,33 @@
 
+   
+
     <div class="page-wrapper"> 
         <div class="page-breadcrumb">
-            <div class="col-5 align-self-center">
-                <h4 class="page-title"><?php echo $page ?></h4>
-                <div class="d-flex align-items-center">
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item active">Konseling</li>
-                            <li class="breadcrumb-item"><a href="javascript:void(0)" onclick="window.history.go(-1); return false;">Aktifitas Konseling</a></li>
-                            <li class="breadcrumb-item"><a href=""><?php echo $page ?></a></li>
-                        </ol>
-                    </nav>
+            <div class="row">
+                <div class="col-5 align-self-center">
+                    <h4 class="page-title"><?php echo $page ?></h4>
+                    <div class="d-flex align-items-center">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item active">Konseling</li>
+                                <li class="breadcrumb-item"><a href="javascript:void(0)" onclick="window.history.go(-1); return false;">Aktifitas Konseling</a></li>
+                                <li class="breadcrumb-item"><a href=""><?php echo $page ?></a></li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+                <?php foreach ($detail_consult as $href) { ?>
+                <div class="col-7 align-self-center">
+                    <div class="d-flex no-block justify-content-end align-items-center">
+                        <a href="<?php echo base_url('report/report/report_detail_consult/'.$href->id_consult)?>" class="btn btn-primary"><i class="mdi mdi-export"></i> Buat Rekap</a>
+                    </div>
                 </div>
             </div>
+            <?php } ?>
         </div>
+
         <div class="container-fluid">
-                  <div class="card-columns widget-app-columns">
+                  <div class="card-columns widget-app-columns" >
                     <?php foreach ($detail_consult as $user) :
                         $date = date('d M H:i A',strtotime($user->date));
                         $prodi_staff = $user->id_prodi_staff;
@@ -32,7 +44,7 @@
                         }
                         ?>
                   <!-- column -->
-                        <div class="card">
+                        <div class="card" style="height: 440px">
                             <div class="card-body">
                                 <h4 class="card-title pb-3">Info Mahasiswa</h4>
                                 <div class="d-flex flex-row">
@@ -56,7 +68,7 @@
                             </div>
                         </div>
                          <!-- column -->
-                         <div class="card">
+                         <div class="card" style="height: 440px">
                             <div class="card-body">
                                 <h4 class="card-title pb-3">Info Konselor</h4>
                                 <div class="d-flex flex-row">
@@ -81,7 +93,7 @@
                         </div>
                     
                          <!-- column -->
-                         <div class="card">
+                         <div class="card" style="height: 440px">
                             <div class="card-body">
                                 <h4 class="card-title">Detail Konsultasi</h4>
                                 <div class="table-responsive m-t-40 m-b-40">

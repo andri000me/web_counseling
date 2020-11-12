@@ -63,7 +63,7 @@ $data = $this->db->query("SELECT * FROM ms_users_college WHERE nim = $no_unique 
                                         <h4 class="mb-0"><?php echo $d->name; ?></h4>
                                     </div>
                                 </div>
-                                <a class="dropdown-item" href="<?php echo base_url('profile/profile/profile_admin') ?>"><i class="ti-user mr-1 ml-1"></i> Profil Saya</a>
+                                <a class="dropdown-item" href="<?php echo base_url('profile/profile') ?>"><i class="ti-user mr-1 ml-1"></i> Profil Saya</a>
                                 <a class="dropdown-item" href="<?php echo base_url('auth/logout')?>"><i class="fa fa-power-off mr-1 ml-1"></i> Logout</a>
                             </div>
                         </li>

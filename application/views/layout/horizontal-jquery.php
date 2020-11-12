@@ -31,7 +31,14 @@
     <script src="<?php echo base_url()?>assets/assets/libs/toastr/build/toastr.min.js"></script>
     <script src="<?php echo base_url()?>assets/assets/extra-libs/toastr/toastr-init.js"></script>
     
-    <script src="<?php echo base_url()?>assets/dist/js/pages/dashboards/dashboard8.js"></script>
+    <!--c3 charts -->
+    <script src="<?php echo base_url()?>assets/assets/extra-libs/c3/d3.min.js"></script>
+    <script src="<?php echo base_url()?>assets/assets/extra-libs/c3/c3.min.js"></script>
+    <!--chartjs -->
+    <script src="<?php echo base_url()?>assets/assets/libs/chart.js/dist/Chart.min.js"></script>
+    <script src="<?php echo base_url()?>assets/dist/js/pages/dashboards/dashboard1.js"></script>
+    
+    <script src="<?php echo base_url()?>assets/assets/extra-libs/horizontal-timeline/horizontal-timeline.js"></script>
 
     <script>
     </script>

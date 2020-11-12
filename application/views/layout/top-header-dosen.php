@@ -82,7 +82,7 @@ $consult_notif = $this->Mnotif->getnotifconsult($no_unique);
 
                                             <!-- Message -->
                                             <?php if ($readed == '0'){ ?>
-                                                <a type="button" label="<?php echo $cn->name ?>" class="message-item bg-muted notif_consult" data-id="<?php echo $cn->id_consult ?>" >
+                                                <a type="button" label="<?php echo $cn->name ?>" class="message-item bg-muted notif_consult" data-id="<?php echo $cn->id_consult ?>"  >
                                                     <img src="<?php echo base_url().$cn->photo ?>" alt="user"
                                                     class="rounded-circle" width="40" />
                                                     <div class="mail-contnet">
@@ -115,7 +115,41 @@ $consult_notif = $this->Mnotif->getnotifconsult($no_unique);
                                 </ul>
                             </div>
                         </li>
-                    <?php } ?>
+
+                     <!-- Messages 
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" id="2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="font-24 mdi mdi-comment-processing"></i>
+                              <span class="badge badge-pill  badge-danger font-10 float-right" style="margin-left: -10px; margin-top: 36%; position: relative;" id="new_message"></span>   
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right mailbox animated bounceInDown" aria-labelledby="2">
+                                <span class="with-arrow"><span class="bg-danger"></span></span>
+                                <ul class="list-style-none">
+                                    <li>
+                                        <div class="drop-title text-white bg-danger">
+                                            <span class="font-light">Notifikasi Pesan</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="message-center message-body">
+                                            <a href="javascript:void(0)" class="message-item">
+                                                <span class="user-img"> <img src="<?php echo base_url()?>assets/assets/images/users/1.jpg" alt="user" class="rounded-circle"> <span class="profile-status online pull-right"></span> </span>
+                                                <div class="mail-contnet">
+                                                    <h5 class="message-title">Pavan kumar</h5> <span class="mail-desc">Just see the my admin!</span> <span class="time">9:30 AM</span> </div>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link text-center link text-dark" href="javascript:void(0);"> <b>See all e-Mails</b> <i class="fa fa-angle-right"></i> </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        -->
+                        <!-- ============================================================== -->
+                        <!-- End Messages -->
+                        <!-- ============================================================== -->
+                        <?php } ?>
+
 
                         <?php foreach ($data as $d ) { ?>
                         <li class="nav-item dropdown">
@@ -128,7 +162,7 @@ $consult_notif = $this->Mnotif->getnotifconsult($no_unique);
                                         <h4 class="mb-0"><?php echo $d->name; ?></h4>
                                     </div>
                                 </div>
-                                <a class="dropdown-item" href="<?php echo base_url('profile/profile/profile_dosen')?>"><i class="ti-user mr-1 ml-1"></i> Profil Saya</a>
+                                <a class="dropdown-item" href="<?php echo base_url('profile/profile')?>"><i class="ti-user mr-1 ml-1"></i> Profil Saya</a>
                                 <a class="dropdown-item" href="<?php echo base_url('auth/logout')?>"><i class="fa fa-power-off mr-1 ml-1"></i> Logout</a>
                             </div>
                         </li>
@@ -158,16 +192,75 @@ $consult_notif = $this->Mnotif->getnotifconsult($no_unique);
                     });
                 },2000);
 
-                //   function loadlink(){
-                //       $('#notif_consult_realtime').load('<?php $consult_notif ?>',function () {
-                //             $(this).unwrap();
-                //     });
-                //   }
-                //    loadlink(); // This will run on page load
-                //   setInterval(function(){
-                //      loadlink() // this will run after every 5 seconds
-                //  }, 2000);
+                setInterval(function(){
+                    $.ajax({
+                        url:"<?php echo base_url('dosen/notification/count_message')?>",
+                        type:"POST",
+                        dataType:"JSON",
+                        data:{},
+                        success:function(data){
+                           $('#new_message').html(data.count_message);
+                        }
+                    });
+                },2000);
 
-                })
+        
+
+    
+
+    })
+
+
+
+    
+                //status consult table
+     $('.notif_consult').on('click', function () { 
+        window.location.href = "<?php echo base_url('dosen/konseling')?>";
+         $(".table_konseling").dataTable().fnDestroy();
+        var id_consult = $('.notif_consult').attr("data-id");
+        var namepage = $('.notif_consult').attr("label");
+        $(".status_consult").removeClass("active");
+        $("#status_terbaru").addClass("active");
+        $("#page").html('<i class="mdi mdi-chevron-right"></i> '+namepage);
+         table_konseling = $('.table_konseling').DataTable({
+             createdRow: function( row, data, dataIndex ) {
+                $(row).find('td').addClass('max-texts');
+            },
+            "bLengthChange": false,
+            "bFilter": true,
+            "bInfo": false,
+            "bAutoWidth": false,
+            "ordering": false,
+            "processing": true, 
+            "serverSide": true,
+            "order": [], 
+           
+            "ajax": {
+                "url": "<?php echo base_url('dosen/konseling/notif_consult')?>",
+                "type": "POST",
+                "data": {id_consult:id_consult},
+            },
+
+            "columnDefs": [
+            { 
+                "targets": [ -1 ], 
+                "orderable": false, 
+
+            },
+            ],
+
+            "oLanguage": {
+            "sZeroRecords": "Tidak ada data yang tersedia"
+            },
+            "fnInitComplete": function ( oSettings ) {
+            oSettings.oLanguage.sZeroRecords = "Data tidak ditemukan"
+            }
+
+         });
+           $("#table_konseling_filter").detach()
+           $('#search_konseling').keyup(function(){
+                  table_konseling.search($(this).val()).draw();
+            })
+        })
 
         </script>

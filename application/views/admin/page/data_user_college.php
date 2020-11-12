@@ -67,10 +67,7 @@
                             <div class="card-body">
                                 
                                 <div class="list-group ">
-                                    <a href="#" class="list-group-item active"><i class="ti-menu mr-2"></i>Data Mahasiswa</a>
-                                    <a href="javascript:void(0)" class="list-group-item"><i class="ti-angle-right mr-2"></i>Semua Mahasiswa</a>
-                                    <a href="javascript:void(0)" class="list-group-item"><i class="ti-angle-right mr-2"></i>Mahasiswa Yang Diblokir</a>
-                                <h4 class="card-title mt-4">Import Data</h4>
+                                <h4 class="card-title ">Import Data</h4>
                                 <div class="list-group">
                                     <a href="javascript:void(0)" id="modal_import" class="list-group-item">  
                                         <span class="badge badge-info mr-2"><i class="ti-import"></i></span> Import Data User

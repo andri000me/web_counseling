@@ -24,6 +24,17 @@ class Mcollege extends CI_Model {
 		$query = $this->db->get();
 		return $query->result();
 	}
+	public function get_last_consult($sess_no){
+		$this->db->select('*');
+		$this->db->from('ms_consult as c');
+		$this->db->join('ms_users_staff as staff', 'staff.nidn = c.nidn','left');
+		$this->db->join('ms_consult_selection as selection', 'selection.kode_selection = c.kode_selection','left');
+		$this->db->where('c.nim',$sess_no);
+		$this->db->limit(1);
+		$this->db->order_by('c.date','DESC');
+		$query = $this->db->get();
+		return $query->result();
+	}
 
 	private function konseling_datatables_query($term=''){ //term is value of $_REQUEST['search']['value']
 		$column = array('staff.name', 'c.id_consult_status', 's.status', 'c.nidn');

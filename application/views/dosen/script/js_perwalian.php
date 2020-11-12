@@ -58,7 +58,7 @@
     }
 
 </script>
-
+<!-- perwalian
 <script type="text/javascript">
     
             $(function () {
@@ -138,3 +138,5 @@
                 return false;
             });
 </script>
+
+-->

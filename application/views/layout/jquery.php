@@ -17,7 +17,15 @@
     <script src="<?php echo base_url()?>assets/dist/js/sidebarmenu.js"></script>
     <!--Custom JavaScript -->
     <script src="<?php echo base_url()?>assets/dist/js/custom.min.js"></script>
-    <script src="<?php echo base_url()?>assets/dist/js/pages/dashboards/dashboard7.js"></script>
+    <!--chartis chart-->
+    <script src="<?php echo base_url()?>assets/assets/libs/chartist/dist/chartist.min.js"></script>
+    <script src="<?php echo base_url()?>assets/assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
+    <!--c3 charts -->
+    <script src="<?php echo base_url()?>assets/assets/extra-libs/c3/d3.min.js"></script>
+    <script src="<?php echo base_url()?>assets/assets/extra-libs/c3/c3.min.js"></script>
+    <!--chartjs -->
+    <script src="<?php echo base_url()?>assets/assets/libs/chart.js/dist/Chart.min.js"></script>
+    <script src="<?php echo base_url()?>assets/dist/js/pages/dashboards/dashboard1.js"></script>
 
      <!--datatables -->
     <script src="<?php echo base_url()?>assets/assets/extra-libs/DataTables/datatables.min.js"></script>

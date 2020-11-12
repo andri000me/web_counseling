@@ -37,12 +37,17 @@
                         <div class="ml-auto">
                             <div class="btn-group mr-2" role="group" aria-label="Button group with nested dropdown">
                                 <button type="button" onclick="reload_table();" class="btn btn-outline-secondary font-18"><i class="mdi mdi-reload"></i></button>
+                                <!--
+                                 <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#modalreportwali"><i class="mdi mdi-import"></i> Report Konseling Wali</button>
+                                 -->
                             </div>
+                            <!-- perwalian
                             <div class="btn-group mr-2" role="group" aria-label="Button group with nested dropdown">
                                 <div class="btn-group" role="group">
                                     <a type="button" class="btn btn-outline-secondary font-18" href="<?php echo base_url('dosen/konseling/select_wali/'.$nidn) ?>"><i class="mdi mdi-account"></i> Perwalian Mahasiswa</a>
                                 </div>
                             </div>
+                            -->
                         </div>
                     </div>
                     <!-- Action part -->
@@ -76,5 +81,7 @@
         <!-- ============================================================== -->
 
     <?php
+        include(APPPATH.'views/dosen/page/modal_report.php'); 
+        include(APPPATH.'views/report/js_report.php'); 
         include(APPPATH.'views/dosen/script/js_perwalian.php');  
     ?>

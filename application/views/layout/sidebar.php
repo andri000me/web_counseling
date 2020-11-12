@@ -30,7 +30,7 @@ $data = $this->db->query("SELECT * FROM ms_users_college WHERE nim = $no_unique 
                                         <span class="op-5 user-email"><?php echo $d->email; ?> </span>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="Userdd">
-                                        <a class="dropdown-item" href="<?php echo base_url('profile/profile/profile_admin') ?>"><i class="ti-user mr-1 ml-1"></i> Profil Saya</a>
+                                        <a class="dropdown-item" href="<?php echo base_url('profile/profile') ?>"><i class="ti-user mr-1 ml-1"></i> Profil Saya</a>
                                         <a class="dropdown-item" href="<?php echo base_url('auth/logout') ?>"><i class="fa fa-power-off mr-1 ml-1"></i> Logout</a>
                                     </div>
                                 </div>
@@ -61,7 +61,7 @@ $data = $this->db->query("SELECT * FROM ms_users_college WHERE nim = $no_unique 
                         </li>
 
                         <li class="nav-small-cap"><i class="mdi mdi-dots-horizontal"></i> <span class="hide-menu">Ekstra</span></li>
-                        <li class="sidebar-item"><a href="<?php echo base_url('admin/user/data_user')?>" class="sidebar-link  waves-dark" aria-expanded="false"><i class="mdi mdi-newspaper"></i><span class="hide-menu">Artikel</span></a>
+                        <li class="sidebar-item"><a href="<?php echo base_url('article/article')?>" class="sidebar-link  waves-dark" aria-expanded="false"><i class="mdi mdi-newspaper"></i><span class="hide-menu">Artikel</span></a>
                         </li>
                        
                     </ul>

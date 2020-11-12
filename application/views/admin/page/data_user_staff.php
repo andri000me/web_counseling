@@ -87,16 +87,6 @@
                                 </div>
                                 <div class="d-flex no-block align-items-center ">
                                     <h4 class="card-title mt-4">Rekap Data</h4>
-                                    <div class="ml-auto">
-                                        <div class="btn-group btn-group-toggle mt-3" data-toggle="buttons">
-                                          <label class="btn btn-primary btn-sm active">
-                                            <input type="radio" name="options" id="pdf"  checked> PDF
-                                          </label>
-                                          <label class="btn btn-primary btn-sm">
-                                            <input type="radio" name="options" id="excel" > Excel
-                                          </label>
-                                        </div>
-                                    </div>
                                 </div>
                                 <div class="list-group">
                                     <a href="<?php echo base_url('excel/report/report_data_user/ALL'); ?>" class="list-group-item">  

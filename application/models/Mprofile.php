@@ -19,6 +19,15 @@ class Mprofile extends CI_Model {
 		return $query->result();
 	}
 
+	public function get_users_college($sess_no){ //term is value of $_REQUEST['search']['value']
+		
+		$this->db->select('*');
+		$this->db->from('ms_users_college as college');
+		$this->db->where('nim',$sess_no);
+		$query = $this->db->get();
+		return $query->result();
+	}
+
 	public function get_auth($sess_no){ //term is value of $_REQUEST['search']['value']
 		
 		$this->db->select('*');
@@ -33,6 +42,11 @@ class Mprofile extends CI_Model {
 		$this->db->update('ms_users_staff',$data);
 
 	}
+	public function change_profile_college($data,$no_unique){
+		$this->db->where('nim',$no_unique);
+		$this->db->update('ms_users_college',$data);
+
+	}
 
 	public function change_auth($data,$no_unique){
 		$this->db->where('no_unique',$no_unique);
@@ -44,5 +58,11 @@ class Mprofile extends CI_Model {
 
 		$this->db->where('ms_users_staff.nidn', $sess_no);
 		$this->db->update('ms_users_staff',$data);
+	}
+
+	public function change_photo_college($data,$sess_no){
+
+		$this->db->where('ms_users_college.nim', $sess_no);
+		$this->db->update('ms_users_college',$data);
 	}
 }
