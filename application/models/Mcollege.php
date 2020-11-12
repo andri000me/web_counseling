@@ -100,6 +100,7 @@ class Mcollege extends CI_Model {
 	}
 
 
+
 	function konseling_count_filtered(){
 	  $term = $_REQUEST['search']['value']; 
 	  $this->konseling_datatables_query($term);

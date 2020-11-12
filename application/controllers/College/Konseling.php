@@ -208,6 +208,17 @@ class Konseling extends CI_Controller {
 		echo json_encode($output);
 	}
 
+	public function notif_consult()
+	{	
+
+		$id_consult = $this->input->post('id_consult');
+		$nim = $this->session->userdata('no_unique');
+		//update readed
+		$data= $this->Mnotif->update_readed_consult_college($id_consult);
+		//output to json format
+		echo json_encode($data);
+	}
+
 	function delete_konseling()
 	{
 	  if($this->input->post('checkbox_value')){

@@ -7,6 +7,8 @@ $data = $this->db->query("SELECT * FROM ms_users_staff WHERE nidn = $no_unique "
 }else{
 $data = $this->db->query("SELECT * FROM ms_users_college WHERE nim = $no_unique ")->result() ;    
 }
+
+$consult_notif = $this->Mnotif->getnotifconsult_college($no_unique);
 ?>
         <!-- ============================================================== -->
         <!-- Topbar header - style you can find in pages.scss -->
@@ -51,6 +53,64 @@ $data = $this->db->query("SELECT * FROM ms_users_college WHERE nim = $no_unique 
                     <!-- Right side toggle and nav items -->
                     <!-- ============================================================== -->
                     <ul class="navbar-nav float-right">
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" > <i class="mdi mdi-bell font-24 "></i>
+                                <span class="badge badge-pill  badge-danger font-10 float-right" style="margin-left: -10px; margin-top: 36%; position: relative;" id="count_consult"><!-- notif --></span>
+                                
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right mailbox animated bounceInDown">
+                                <span class="with-arrow"><span class="bg-primary"></span></span>
+                                <ul class="list-style-none">
+                                    <li>
+                                        <div class="drop-title bg-primary text-white">
+                                            <h4 class="mb-0 mt-1" id="h4_count_consult"><!-- notif --></h4>
+                                            <span class="font-light">Notifikasi Konseling</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="message-center notifications" id="notif_consult_realtime">
+                                            <?php foreach ($consult_notif as $cn ) { 
+                                                $str = $cn->date;
+                                                $time = date('d M g:i A ', strtotime($str));
+                                                $readed = $cn->readed;
+                                                ?>
+
+                                            <!-- Message -->
+                                            <?php if ($readed == '1' or $readed == '0'){ ?>
+                                                <a type="button" label="<?php echo $cn->name ?>" class="message-item bg-muted notif_consult" data-id="<?php echo $cn->id_consult ?>"  >
+                                                    <img src="<?php echo base_url().$cn->photo ?>" alt="user"
+                                                    class="rounded-circle" width="40" />
+                                                    <div class="mail-contnet">
+                                                        <h5 class="message-title"><?php echo $cn->name ?> 
+                                                            <span class="label label-danger float-right">Baru</span> 
+                                                        </h5>
+                                                        <span class="mail-desc"><?php echo $cn->title; ?></span> 
+                                                        <span class="time"><?php echo $time ?></span> </div>
+                                                </a>
+
+                                            <?php }else{ ?>
+                                                 <a type="button" label="<?php echo $cn->name ?>" class="message-item notif_consult" data-id="<?php echo $cn->id_consult ?>" >
+                                                    <img src="<?php echo base_url().$cn->photo ?>" alt="user"
+                                                class="rounded-circle" width="40" />
+                                                    <div class="mail-contnet">
+                                                        <h5 class="message-title"><?php echo $cn->name ?>  
+                                                        </h5>
+                                                        <span class="mail-desc"><?php echo $cn->title; ?></span> 
+                                                        <span class="time"><?php echo $time ?></span> </div>
+                                                </a>
+                                                <?php
+                                                    } 
+                                                } 
+                                                ?>
+                                        </div>
+                                    </li>
+                                     <li>
+                                        <a type="button" label="Pending" data-id="5" href="javascript:void(0)"  id="status_pending"   class="nav-link text-center mb-1 text-dark status_consult" > <strong>Lihat Semua</strong> <i class="fa fa-angle-right"></i> </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
                         <!-- ============================================================== -->
                         <!-- Messages 
                         <li class="nav-item dropdown">
@@ -115,3 +175,57 @@ $data = $this->db->query("SELECT * FROM ms_users_college WHERE nim = $no_unique 
         </header>
         <!-- ============================================================== -->
         <!-- End Topbar header -->
+
+
+        <script type="text/javascript">
+            $(document).ready(function(){
+                setInterval(function(){
+                    $.ajax({
+                        url:"<?php echo base_url('college/notification/count_consult')?>",
+                        type:"POST",
+                        dataType:"JSON",
+                        data:{},
+                        success:function(data){
+                           $('#count_consult').html(data.count_consult);
+                           $('#h4_count_consult').html(data.count_consult+' Baru');
+                        }
+                    });
+                },2000);
+
+                setInterval(function(){
+                    $.ajax({
+                        url:"<?php echo base_url('college/notification/count_message')?>",
+                        type:"POST",
+                        dataType:"JSON",
+                        data:{},
+                        success:function(data){
+                           $('#new_message').html(data.count_message);
+                        }
+                    });
+                },2000);
+    
+
+    })
+
+                //status consult table
+     $('.notif_consult').on('click', function () { 
+        var id_consult = $('.notif_consult').attr("data-id");
+        var namepage = $('.notif_consult').attr("label");
+        $(".status_consult").removeClass("active");
+        $("#status_terbaru").addClass("active");
+        $.ajax({
+                        url:"<?php echo base_url('college/konseling/notif_consult')?>",
+                        type:"POST",
+                        dataType:"JSON",
+                        data:{id_consult:id_consult},
+                        success:function(data){
+                             window.location.href = "<?php echo base_url('college/konseling')?>";
+                        }
+                    });
+         
+            
+
+        })
+
+
+</script>

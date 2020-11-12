@@ -81,7 +81,7 @@ $consult_notif = $this->Mnotif->getnotifconsult($no_unique);
                                                 ?>
 
                                             <!-- Message -->
-                                            <?php if ($readed == '0'){ ?>
+                                            <?php if ($readed == ''){ ?>
                                                 <a type="button" label="<?php echo $cn->name ?>" class="message-item bg-muted notif_consult" data-id="<?php echo $cn->id_consult ?>"  >
                                                     <img src="<?php echo base_url().$cn->photo ?>" alt="user"
                                                     class="rounded-circle" width="40" />
