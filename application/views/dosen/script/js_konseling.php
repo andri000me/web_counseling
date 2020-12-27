@@ -21,7 +21,7 @@
             "order": [], 
            
             "ajax": {
-                "url": "<?php echo base_url('dosen/konseling/konseling')?>",
+                "url": "<?php echo base_url('Dosen/konseling/konseling')?>",
                 "type": "POST"
             },
 
@@ -66,7 +66,7 @@
             "order": [], 
            
             "ajax": {
-                "url": "<?php echo base_url('dosen/konseling/list_table_ketua')?>",
+                "url": "<?php echo base_url('Dosen/konseling/list_table_ketua')?>",
                 "type": "POST"
             },
 
@@ -94,9 +94,12 @@
             table_ketua.search($(this).val()).draw();
         })
        //==================
-        
+
             
     });
+
+
+
 
     //orderby
      $('.filterby').on('click', function () {
@@ -118,7 +121,7 @@
             "order": [], 
            
             "ajax": {
-                "url": "<?php echo base_url('dosen/konseling/filterby')?>",
+                "url": "<?php echo base_url('Dosen/konseling/filterby')?>",
                 "type": "POST",
                 "data": {kode_selection:kode_selection},
             },
@@ -181,7 +184,7 @@
             "order": [], 
            
             "ajax": {
-                "url": "<?php echo base_url('dosen/konseling/status_consult')?>",
+                "url": "<?php echo base_url('Dosen/konseling/status_consult')?>",
                 "type": "POST",
                 "data": {id_consult_status:id_consult_status},
             },
@@ -239,7 +242,7 @@
                           }).then((result) => {
                             if (result.value) {
                                $.ajax({
-                                url:"<?php echo base_url(); ?>dosen/konseling/delete_konseling",
+                                url:"<?php echo base_url(); ?>Dosen/konseling/delete_konseling",
                                 method:"POST",
                                 beforeSend :function () {
                                             swal.fire({
@@ -279,8 +282,7 @@
 
 //===================================acc Pengajuan ========================================
 
-    function acc_konseling(status){
-      var id = $('.acc_konseling').attr("data-id");
+    function acc_konseling(id,status){
 
         swal.fire({
                             title: 'Konfirmasi',
@@ -293,7 +295,7 @@
                           }).then((result) => {
                             if (result.value) {
                               $.ajax({
-                                url : "<?php echo base_url('dosen/konseling/acc_konseling')?>/"+status,
+                                url : "<?php echo base_url('Dosen/konseling/acc_konseling')?>",
                                 type: "POST",
                                 dataType: "JSON",
                                 beforeSend :function () {
@@ -329,13 +331,13 @@
       var status = $('.start_konseling').attr("data-id");
 
                               $.ajax({
-                                url : "<?php echo base_url('dosen/konseling/start_konseling')?>/"+id,
+                                url : "<?php echo base_url('Dosen/konseling/start_konseling')?>/"+id,
                                 type: "POST",
                                 dataType: "JSON",
                                 data:{id:id, status:status}, 
                                 success:function(data){
                       
-                                window.location.href = '<?php echo base_url('dosen/konseling/chat')?>/'+id;
+                                window.location.href = '<?php echo base_url('Dosen/konseling/chat')?>/'+id;
                      
                      }
                     })

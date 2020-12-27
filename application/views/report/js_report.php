@@ -13,7 +13,7 @@
             if (pilihan == '1'){
                 $('#group_college').removeAttr('style');
                   $.ajax({
-	                url : "<?php echo base_url('report/report/get_report_bycollege');?>",
+	                url : "<?php echo base_url('Report/report/get_report_bycollege');?>",
 	                method : "POST",
 	                data : {nidn:nidn},
 	                async : false,
@@ -46,7 +46,7 @@
             if (pilihan == '1'){
                 $('#group_college_wali').removeAttr('style');
                   $.ajax({
-	                url : "<?php echo base_url('report/report/get_report_wali_bycollege');?>",
+	                url : "<?php echo base_url('Report/report/get_report_wali_bycollege');?>",
 	                method : "POST",
 	                data : {nidn:nidn},
 	                async : false,

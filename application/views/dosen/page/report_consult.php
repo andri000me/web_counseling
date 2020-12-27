@@ -17,7 +17,7 @@
                 <?php foreach ($report_consult as $href) { ?>
                 <div class="col-7 align-self-center">
                     <div class="d-flex no-block justify-content-end align-items-center">
-                        <a href="<?php echo base_url('report/report/report_hasil_consult/'.$href->id_consult)?>" class="btn btn-primary"><i class="mdi mdi-export"></i> Buat Rekap</a>
+                        <a href="<?php echo base_url('Report/report/report_hasil_consult/'.$href->id_consult)?>" class="btn btn-primary"><i class="mdi mdi-export"></i> Buat Rekap</a>
                     </div>
                 </div>
             </div>
@@ -99,7 +99,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <h5 >Rekap Chat</h5>
-                                <a href="<?php echo base_url('report/report/report_consult_chat/').$user->id_consult ?>"  class="label label-primary text-white"><i class="fa fa-download"></i> Unduh</a>
+                                <a href="<?php echo base_url('Report/report/report_consult_chat/').$user->id_consult ?>"  class="label label-primary text-white"><i class="fa fa-download"></i> Unduh</a>
                                 <h5 class="m-t-30">Catatan Dari Konselor</h5>
                                  <a href="javascript:void(0)" onclick="showcatatan();"  class="label label-primary text-white"><i class="fa fa-file"> </i> Lihat Catatan</a>
                                 <input type="hidden" id="inputcatatan" value="<?php echo $user->catatan ?>">
@@ -129,7 +129,7 @@
                                     <div class="p-2"><img src="<?php echo $photo ?>" alt="user" width="50" class="rounded-circle"></div>
                                     <div class="comment-text w-100">
                                         <h6 class="font-medium mb-3"> <?php echo $name ?> </h6>
-                                        <a  href="<?php echo base_url('dosen/konseling/download_file/'.$file->id_file)?>" target="_blank" class="label label-rounded label-primary m-b-15 text-white"><?php echo $file->file; ?></a>
+                                        <a  href="<?php echo base_url('Dosen/konseling/download_file/'.$file->id_file)?>" target="_blank" class="label label-rounded label-primary m-b-15 text-white"><?php echo $file->file; ?></a>
                                         <div class="comment-footer mt-3">
                                             <span class="text-muted float-right"><?php echo $datesend; ?></span> 
                                         </div>

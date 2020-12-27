@@ -38,7 +38,7 @@ class User extends CI_Controller {
 					        <i class="ti-settings"></i>
 					    </button>
 					    <div class="dropdown-menu ">
-					    	<a class="dropdown-item" href="'.$base_url.'admin/user/detail_user/'.$isi->id_users.'"><i class="mdi mdi-eye-outline"></i> Detail</a>
+					    	<a class="dropdown-item" href="'.$base_url.'Admin/user/detail_user/'.$isi->id_users.'"><i class="mdi mdi-eye-outline"></i> Detail</a>
 					        <a class="dropdown-item" href="javascript:void(0)" onclick="edit_user('."'".$isi->id_users."'".')"><i class="mdi mdi-grease-pencil"></i> Edit</a>
 					        <a class="dropdown-item" href="javascript:void(0)" onclick="delete_user('."'".$isi->nidn."'".')"><i class="mdi mdi-delete"></i> Hapus</a>
 					     </div>';
@@ -293,7 +293,7 @@ class User extends CI_Controller {
 					        <i class="ti-settings"></i>
 					    </button>
 					    <div class="dropdown-menu ">
-					    	<a class="dropdown-item" href="'.$base_url.'admin/user/detail_college/'.$isi->id_college.'"><i class="mdi mdi-eye-outline"></i> Detail</a>
+					    	<a class="dropdown-item" href="'.$base_url.'Admin/user/detail_college/'.$isi->id_college.'"><i class="mdi mdi-eye-outline"></i> Detail</a>
 					        <a class="dropdown-item" href="javascript:void(0)" onclick="edit_college('."'".$isi->id_college."'".')"><i class="mdi mdi-grease-pencil"></i> Edit</a>
 					        <a class="dropdown-item" href="javascript:void(0)" onclick="delete_college('."'".$isi->nim."'".')"><i class="mdi mdi-delete"></i> Hapus</a>
 					     </div>';

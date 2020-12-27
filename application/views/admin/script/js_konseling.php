@@ -20,7 +20,7 @@
             "order": [], 
            
             "ajax": {
-                "url": "<?php echo base_url('admin/konseling/konseling')?>",
+                "url": "<?php echo base_url('Admin/konseling/konseling')?>",
                 "type": "POST"
             },
 
@@ -70,7 +70,7 @@
             "order": [], 
            
             "ajax": {
-                "url": "<?php echo base_url('admin/konseling/filterby')?>",
+                "url": "<?php echo base_url('Admin/konseling/filterby')?>",
                 "type": "POST",
                 "data": {kode_selection:kode_selection},
             },
@@ -133,7 +133,7 @@
             "order": [], 
            
             "ajax": {
-                "url": "<?php echo base_url('admin/konseling/status_consult')?>",
+                "url": "<?php echo base_url('Admin/konseling/status_consult')?>",
                 "type": "POST",
                 "data": {id_consult_status:id_consult_status},
             },

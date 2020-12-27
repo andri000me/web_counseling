@@ -30,8 +30,8 @@ $data = $this->db->query("SELECT * FROM ms_users_college WHERE nim = $no_unique 
                                         <span class="op-5 user-email"><?php echo $d->email; ?> </span>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="Userdd">
-                                        <a class="dropdown-item" href="<?php echo base_url('profile/profile') ?>"><i class="ti-user mr-1 ml-1"></i> Profil Saya</a>
-                                        <a class="dropdown-item" href="<?php echo base_url('auth/logout') ?>"><i class="fa fa-power-off mr-1 ml-1"></i> Logout</a>
+                                        <a class="dropdown-item" href="<?php echo base_url('Profile/profile') ?>"><i class="ti-user mr-1 ml-1"></i> Profil Saya</a>
+                                        <a class="dropdown-item" href="<?php echo base_url('Auth/logout') ?>"><i class="fa fa-power-off mr-1 ml-1"></i> Logout</a>
                                     </div>
                                 </div>
                             </div>
@@ -43,25 +43,25 @@ $data = $this->db->query("SELECT * FROM ms_users_college WHERE nim = $no_unique 
                       
                         <!-- User Profile-->
                         <li class="nav-small-cap"><i class="mdi mdi-dots-horizontal"></i> <span class="hide-menu">Dashboard</span></li>
-                        <li class="sidebar-item"> <a href="<?php echo base_url('admin/dashboard')?>" class="sidebar-link waves-effect waves-dark" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Dashboard </span></a>
+                        <li class="sidebar-item"> <a href="<?php echo base_url('Admin/dashboard')?>" class="sidebar-link waves-effect waves-dark" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Dashboard </span></a>
                         </li>
 
                         <li class="nav-small-cap"><i class="mdi mdi-dots-horizontal"></i> <span class="hide-menu">Manajemen Konseling</span></li>
                         
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark" href="<?php echo base_url('admin/konseling')?>"  aria-expanded="false"><i class="mdi mdi-book-multiple-variant"></i><span class="hide-menu">Konseling</span></a>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark" href="<?php echo base_url('Admin/konseling')?>"  aria-expanded="false"><i class="mdi mdi-book-multiple-variant"></i><span class="hide-menu">Konseling</span></a>
                         </li>
-                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark" href="<?php echo base_url('admin/konseling/perwalian')?>"  aria-expanded="false"><i class="mdi mdi-account-multiple"></i><span class="hide-menu">Perwalian Mahasiswa</span></a>
+                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark" href="<?php echo base_url('Admin/konseling/perwalian')?>"  aria-expanded="false"><i class="mdi mdi-account-multiple"></i><span class="hide-menu">Perwalian Mahasiswa</span></a>
                         </li>
 
                         <li class="nav-small-cap"><i class="mdi mdi-dots-horizontal"></i> <span class="hide-menu">Manajemen User</span></li>
-                        <li class="sidebar-item"><a href="<?php echo base_url('admin/user/data_user')?>" class="sidebar-link  waves-dark" aria-expanded="false"><i class="mdi mdi-account-box"></i><span class="hide-menu">Data Pendidik</span></a>
+                        <li class="sidebar-item"><a href="<?php echo base_url('Admin/user/data_user')?>" class="sidebar-link  waves-dark" aria-expanded="false"><i class="mdi mdi-account-box"></i><span class="hide-menu">Data Pendidik</span></a>
                         </li>
                        
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark" href="<?php echo base_url('admin/user/data_user_college')?>"  aria-expanded="false"><i class="mdi mdi-account-box-outline"></i><span class="hide-menu">Data Mahasiswa </span></a>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark" href="<?php echo base_url('Admin/user/data_user_college')?>"  aria-expanded="false"><i class="mdi mdi-account-box-outline"></i><span class="hide-menu">Data Mahasiswa </span></a>
                         </li>
 
                         <li class="nav-small-cap"><i class="mdi mdi-dots-horizontal"></i> <span class="hide-menu">Ekstra</span></li>
-                        <li class="sidebar-item"><a href="<?php echo base_url('article/article')?>" class="sidebar-link  waves-dark" aria-expanded="false"><i class="mdi mdi-newspaper"></i><span class="hide-menu">Artikel</span></a>
+                        <li class="sidebar-item"><a href="<?php echo base_url('Article/article')?>" class="sidebar-link  waves-dark" aria-expanded="false"><i class="mdi mdi-newspaper"></i><span class="hide-menu">Artikel</span></a>
                         </li>
                        
                     </ul>

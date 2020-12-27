@@ -63,7 +63,7 @@ function sendTxtMessage(message){
                           dataType : "json",
                           type : 'post',
                           data : {messageTxt : messageTxt, id_user : id_user, id_consult : id_consult},
-                          url: '<?php echo base_url('college/konseling/send_text_message')?>',
+                          url: '<?php echo base_url('College/konseling/send_text_message')?>',
                           success:function(data)
                           {
                             GetChatHistory(id_consult)      
@@ -86,7 +86,7 @@ function GetChatHistory(id_consult){
                 $.ajax({
                           //dataType : "json",
 
-                          url: '<?php echo base_url('college/konseling/get_chat')?>/'+id_consult,
+                          url: '<?php echo base_url('College/konseling/get_chat')?>/'+id_consult,
                           success:function(data)
                           {
                             $('#dumppy').html(data);
@@ -139,7 +139,7 @@ $('#finishconsult').click(function(){
                                               dataType : "json",
                                               type : 'post',
                                               data : {text : text, id_consult : id_consult},
-                                              url: '<?php echo base_url('college/konseling/catatan')?>',
+                                              url: '<?php echo base_url('College/konseling/catatan')?>',
                                               success:function(result)
                                               {
                                                 swal.fire(
@@ -148,7 +148,7 @@ $('#finishconsult').click(function(){
                                                     'success'
                                                   ).then((result) => 
                                                     {
-                                                     window.location.href = '<?php echo base_url('college/konseling/')?>';
+                                                     window.location.href = '<?php echo base_url('College/konseling/')?>';
                                                      }) 
                                               },
                                               error: function (jqXHR, status, err) {
@@ -183,7 +183,7 @@ $('.deletefile').click(function(){
                                               dataType : "json",
                                               type : 'post',
                                               data : {id : id},
-                                              url: '<?php echo base_url('college/konseling/deletefile')?>',
+                                              url: '<?php echo base_url('College/konseling/deletefile')?>',
                                               success:function(result)
                                               {
                                                 swal.fire(

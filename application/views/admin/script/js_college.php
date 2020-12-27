@@ -10,7 +10,7 @@
             "order": [], 
            
             "ajax": {
-                "url": "<?php echo base_url('admin/user/list_user_college')?>",
+                "url": "<?php echo base_url('Admin/user/list_user_college')?>",
                 "type": "POST"
             },
 
@@ -38,7 +38,7 @@
 
     $("#formimport").dropzone({ 
         autoProcessQueue: false,
-        url: "<?php echo base_url('excel/import/import_data_college')?>",
+        url: "<?php echo base_url('Excel/import/import_data_college')?>",
         method: "POST",
         maxFiles: 1,
         method:"post",
@@ -106,7 +106,7 @@
         e.preventDefault();
         $.ajax({
             type: "post",
-            url : "<?php echo base_url('admin/user/add_college')?>",
+            url : "<?php echo base_url('Admin/user/add_college')?>",
             data: $(this).serialize(),
             dataType: "json",
             beforeSend: function(){
@@ -183,7 +183,7 @@
         $('input,select').removeClass('is-invalid is-valid');
         //Ajax Load data from ajax
         $.ajax({
-            url : "<?php echo base_url('admin/user/get_college/')?>/" + id,
+            url : "<?php echo base_url('Admin/user/get_college/')?>/" + id,
             type: "GET",
             dataType: "JSON",
             success: function(data)
@@ -209,7 +209,7 @@
         e.preventDefault();
         $.ajax({
             type: "post",
-            url : "<?php echo base_url('admin/user/edit_college')?>",
+            url : "<?php echo base_url('Admin/user/edit_college')?>",
             data: $(this).serialize(),
             dataType: "JSON",
             beforeSend: function(){
@@ -283,7 +283,7 @@
                           }).then((result) => {
                             if (result.value) {
                               $.ajax({
-                                url : "<?php echo base_url('admin/user/delete_college')?>/"+nim,
+                                url : "<?php echo base_url('Admin/user/delete_college')?>/"+nim,
                                 type: "POST",
                                 dataType: "JSON",
                                 beforeSend :function () {

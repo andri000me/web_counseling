@@ -40,11 +40,12 @@
                                 <!--
                                  <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#modalreportwali"><i class="mdi mdi-import"></i> Report Konseling Wali</button>
                                  -->
+                                 <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#modaldatawali"><i class="mdi mdi-account"></i> Data Mahasiswa</button>
                             </div>
                             <!-- perwalian
                             <div class="btn-group mr-2" role="group" aria-label="Button group with nested dropdown">
                                 <div class="btn-group" role="group">
-                                    <a type="button" class="btn btn-outline-secondary font-18" href="<?php echo base_url('dosen/konseling/select_wali/'.$nidn) ?>"><i class="mdi mdi-account"></i> Perwalian Mahasiswa</a>
+                                    <a type="button" class="btn btn-outline-secondary font-18" href="<?php echo base_url('Dosen/konseling/select_wali/'.$nidn) ?>"><i class="mdi mdi-account"></i> Perwalian Mahasiswa</a>
                                 </div>
                             </div>
                             -->
@@ -79,6 +80,30 @@
         <!-- ============================================================== -->
         <!-- End Page wrapper  -->
         <!-- ============================================================== -->
+
+            <!-- Modal report wali -->
+        <div class="modal fade" id="modaldatawali" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Data Mahasiswa Wali</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="form-group">
+                    <label for="exampleFormControlSelect2">Data Mahasiswa</label>
+                    <select multiple class="form-control" id="exampleFormControlSelect2">
+                    <?php foreach ($collegewali as $cw ) { ?>
+                      <option><?php echo $cw->nim ?> | <?php echo $cw->name ?></option>
+                    <?php } ?>
+                    </select>
+                </div>                
+            </div>
+          </div>
+        </div>
+    </div>
 
     <?php
         include(APPPATH.'views/dosen/page/modal_report.php'); 

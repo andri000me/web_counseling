@@ -16,7 +16,7 @@
                     <a class="ti-menu ti-close btn btn-success show-left-part d-block d-md-none" href="javascript:void(0)"></a>
                     <div class="scrollable" style="height:100%;">
                         <div class="p-3">
-                            <a class="waves-effect waves-light btn btn-danger d-block" href="<?php echo base_url('college/konseling/form_pengajuan')?>">Konseling Baru</a>
+                            <a class="waves-effect waves-light btn btn-danger d-block" href="<?php echo base_url('College/konseling/form_pengajuan')?>">Konseling Baru</a>
                         </div>
                         <div class="divider"></div>
                          <ul class="list-group">

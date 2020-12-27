@@ -18,7 +18,7 @@
             "order": [], 
            
             "ajax": {
-                "url": "<?php echo base_url('dosen/konseling/list_perwalian')?>",
+                "url": "<?php echo base_url('Dosen/konseling/list_perwalian')?>",
                 "type": "POST"
             },
 
@@ -116,7 +116,7 @@
                        });
 
                      $.ajax({
-                    url: "<?php echo base_url('dosen/konseling/proses_selected');?>",
+                    url: "<?php echo base_url('Dosen/konseling/proses_selected');?>",
                     method: "POST",
                     data :{nim:nim,nidn:nidn,not_nim:not_nim},
                     success : function(data){

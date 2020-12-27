@@ -29,8 +29,11 @@ class Konseling extends CI_Controller {
 		
 		foreach ($list as $isi) {
 			$photo =  base_url().$isi->photo_college;
-			$report = base_url('dosen/konseling/report_consult/').$isi->id_consult;
-			$detail_consult = base_url('dosen/konseling/detail_consult/').$isi->id_consult;
+			$report = base_url('Dosen/konseling/report_consult/').$isi->id_consult;
+			$detail_consult = base_url('Dosen/konseling/detail_consult/').$isi->id_consult;
+			$p = '5';
+			$t = '1';
+			$b = '4';
 			$stat = $isi->id_consult_status;
 			if($stat == '1'){
 				$status = '<span class="label label-success mr-2">Diterima</span>';
@@ -45,14 +48,14 @@ class Konseling extends CI_Controller {
 				$aksi = '<a class="btn btn-primary btn-sm" href="'.$report.'"><i class="fas fa-file-alt"></i> Lihat Hasil</a>';
 			}else if($stat == '4'){
 				$status = '<span class="label label-danger mr-2">Ditolak</span>';
-				$aksi = '<a data-id="'.$isi->id_consult.'" class="btn btn-danger btn-sm acc_konseling" href="javascript:void(0)" 
-						onclick="acc_konseling(5)">Batalkan</a>';
+				$aksi = '<a  class="btn btn-danger btn-sm acc_konseling" href="javascript:void(0)" 
+						onclick="acc_konseling('.$isi->id_consult.','.$p.')">Batalkan</a>';
 			}else if($stat == '5'){
 				$status = '<span class="label label-warning mr-2">Pending</span>';
-				$aksi = '<a data-id="'.$isi->id_consult.'" class="btn btn-primary btn-sm acc_konseling" href="javascript:void(0)" 
-						onclick="acc_konseling(1)">Terima</a>
-						<a data-id="'.$isi->id_consult.'" class="btn btn-danger btn-sm acc_konseling" href="javascript:void(0)" 
-						onclick="acc_konseling(4)">Tolak</a>';
+				$aksi = '<a  class="btn btn-primary btn-sm acc_konseling" href="javascript:void(0)" 
+						onclick="acc_konseling('.$isi->id_consult.','.$t.')">Terima</a>
+						<a  class="btn btn-danger btn-sm acc_konseling" href="javascript:void(0)" 
+						onclick="acc_konseling('.$isi->id_consult.','.$b.')">Tolak</a>';
 			}
 
 			$str = $isi->date;
@@ -96,8 +99,11 @@ class Konseling extends CI_Controller {
 		
 		foreach ($list as $isi) {
 			$photo =  base_url().$isi->photo_college;
-			$report = base_url('dosen/konseling/report_consult/').$isi->id_consult;
-			$detail_consult = base_url('dosen/konseling/detail_consult/').$isi->id_consult;
+			$report = base_url('Dosen/konseling/report_consult/').$isi->id_consult;
+			$detail_consult = base_url('Dosen/konseling/detail_consult/').$isi->id_consult;
+			$p = '5';
+			$t = '1';
+			$b = '4';
 			$stat = $isi->id_consult_status;
 			if($stat == '1'){
 				$status = '<span class="label label-success mr-2">Diterima</span>';
@@ -112,14 +118,14 @@ class Konseling extends CI_Controller {
 				$aksi = '<a class="btn btn-primary btn-sm" href="'.$report.'"><i class="fas fa-file-alt"></i> Lihat Hasil</a>';
 			}else if($stat == '4'){
 				$status = '<span class="label label-danger mr-2">Ditolak</span>';
-				$aksi = '<a data-id="'.$isi->id_consult.'" class="btn btn-danger btn-sm acc_konseling" href="javascript:void(0)" 
-						onclick="acc_konseling(5)">Batalkan</a>';
+				$aksi = '<a  class="btn btn-danger btn-sm acc_konseling" href="javascript:void(0)" 
+						onclick="acc_konseling('.$isi->id_consult.','.$p.')">Batalkan</a>';
 			}else if($stat == '5'){
 				$status = '<span class="label label-warning mr-2">Pending</span>';
-				$aksi = '<a data-id="'.$isi->id_consult.'" class="btn btn-primary btn-sm acc_konseling" href="javascript:void(0)" 
-						onclick="acc_konseling(1)">Terima</a>
-						<a data-id="'.$isi->id_consult.'" class="btn btn-danger btn-sm acc_konseling" href="javascript:void(0)" 
-						onclick="acc_konseling(4)">Tolak</a>';
+				$aksi = '<a  class="btn btn-primary btn-sm acc_konseling" href="javascript:void(0)" 
+						onclick="acc_konseling('.$isi->id_consult.','.$t.')">Terima</a>
+						<a  class="btn btn-danger btn-sm acc_konseling" href="javascript:void(0)" 
+						onclick="acc_konseling('.$isi->id_consult.','.$b.')">Tolak</a>';
 			}
 
 			$str = $isi->date;
@@ -164,8 +170,11 @@ class Konseling extends CI_Controller {
 		
 		foreach ($list as $isi) {
 			$photo =  base_url().$isi->photo_college;
-			$report = base_url('dosen/konseling/report_consult/').$isi->id_consult;
-			$detail_consult = base_url('dosen/konseling/detail_consult/').$isi->id_consult;
+			$report = base_url('Dosen/konseling/report_consult/').$isi->id_consult;
+			$detail_consult = base_url('Dosen/konseling/detail_consult/').$isi->id_consult;
+			$p = '5';
+			$t = '1';
+			$b = '4';
 			$stat = $isi->id_consult_status;
 			if($stat == '1'){
 				$status = '<span class="label label-success mr-2">Diterima</span>';
@@ -180,14 +189,14 @@ class Konseling extends CI_Controller {
 				$aksi = '<a class="btn btn-primary btn-sm" href="'.$report.'"><i class="fas fa-file-alt"></i> Lihat Hasil</a>';
 			}else if($stat == '4'){
 				$status = '<span class="label label-danger mr-2">Ditolak</span>';
-				$aksi = '<a data-id="'.$isi->id_consult.'" class="btn btn-danger btn-sm acc_konseling" href="javascript:void(0)" 
-						onclick="acc_konseling(5)">Batalkan</a>';
+				$aksi = '<a  class="btn btn-danger btn-sm acc_konseling" href="javascript:void(0)" 
+						onclick="acc_konseling('.$isi->id_consult.','.$p.')">Batalkan</a>';
 			}else if($stat == '5'){
 				$status = '<span class="label label-warning mr-2">Pending</span>';
-				$aksi = '<a data-id="'.$isi->id_consult.'" class="btn btn-primary btn-sm acc_konseling" href="javascript:void(0)" 
-						onclick="acc_konseling(1)">Terima</a>
-						<a data-id="'.$isi->id_consult.'" class="btn btn-danger btn-sm acc_konseling" href="javascript:void(0)" 
-						onclick="acc_konseling(4)">Tolak</a>';
+				$aksi = '<a  class="btn btn-primary btn-sm acc_konseling" href="javascript:void(0)" 
+						onclick="acc_konseling('.$isi->id_consult.','.$t.')">Terima</a>
+						<a  class="btn btn-danger btn-sm acc_konseling" href="javascript:void(0)" 
+						onclick="acc_konseling('.$isi->id_consult.','.$b.')">Tolak</a>';
 			}
 
 			$str = $isi->date;
@@ -226,78 +235,22 @@ class Konseling extends CI_Controller {
 
 		$id_consult = $this->input->post('id_consult');
 		$nidn = $this->session->userdata('no_unique');
-		$list = $this->Mdosen->notif_consult_get_datatables($id_consult,$nidn);
-		$data = array();
-		$no = $_POST['start'];
 		//update readed
-		$this->Mnotif->update_readed_consult($id_consult);
-		foreach ($list as $isi) {
-			$photo =  base_url().$isi->photo_college;
-			$report = base_url('dosen/konseling/report_consult/').$isi->id_consult;
-			$detail_consult = base_url('dosen/konseling/detail_consult/').$isi->id_consult;
-			$stat = $isi->id_consult_status;
-			if($stat == '1'){
-				$status = '<span class="label label-success mr-2">Diterima</span>';
-				$aksi = '<a data-id="2" class="btn btn-primary btn-sm start_konseling" href="javascript:void(0)" 
-						onclick="start_konseling('.$isi->id_consult.')"><i class="fa fa-comment-dots"></i> Mulai Konseling</a>';
-			}else if($stat == '2'){
-				$status = '<span class="label label-primary mr-2">Progress</span>';
-				$aksi = '<a data-id="2" class="btn btn-primary btn-sm start_konseling" href="javascript:void(0)" 
-						onclick="start_konseling('.$isi->id_consult.')"><i class="fa fa-comment-dots"></i> Chat</a>';
-			}else if($stat == '3'){
-				$status = '<span class="label label-success mr-2">Selesai</span>';
-				$aksi = '<a class="btn btn-primary btn-sm" href="'.$report.'"><i class="fas fa-file-alt"></i> Lihat Hasil</a>';
-			}else if($stat == '4'){
-				$status = '<span class="label label-danger mr-2">Ditolak</span>';
-				$aksi = '<a data-id="'.$isi->id_consult.'" class="btn btn-danger btn-sm acc_konseling" href="javascript:void(0)" 
-						onclick="acc_konseling(5)">Batalkan</a>';
-			}else if($stat == '5'){
-				$status = '<span class="label label-warning mr-2">Pending</span>';
-				$aksi = '<a data-id="'.$isi->id_consult.'" class="btn btn-primary btn-sm acc_konseling" href="javascript:void(0)" 
-						onclick="acc_konseling(1)">Terima</a>
-						<a data-id="'.$isi->id_consult.'" class="btn btn-danger btn-sm acc_konseling" href="javascript:void(0)" 
-						onclick="acc_konseling(4)">Tolak</a>';
-			}
-
-			$str = $isi->date;
-			$time = date('d M g:i A ', strtotime($str));
-			$no++;
-			$row = array();
-			$row[] = '<div class="ml-2">
-                        <input type="checkbox" class="check_delete_konseling" id="check_delete_konseling" value="'.$isi->id_consult.'">
-                       </div>
-                        ';
-            $row[] = '<a class="text-primary "  href="'.$detail_consult.'" ><i class="fas fa-eye"></i></a>';
-			$row[] = '<img src="'.$photo.'" alt="user"
-			class="rounded-circle" width="30" /> '.$isi->name_college.'';
-			$row[] = '<small>'.$isi->selection;
-			$row[] = '<small>'.$status;
-			$row[] = '<small>'.$time;
-
-			//add html for action
-			$row[] = $aksi;
-		
-			$data[] = $row;
-		}
-
-		$output = array(
-						"draw" => $_POST['draw'],
-						"recordsTotal" => $this->Mdosen->konseling_count_all(),
-						"recordsFiltered" => $this->Mdosen->konseling_count_filtered(),
-						"data" => $data,
-				);
+		$data= $this->Mnotif->update_readed_consult($id_consult);
 		//output to json format
-		echo json_encode($output);
+		echo json_encode($data);
 	}
+
 
 
 	//==================== PERWALIAN MAHASISWA ======================
 	public function perwalian()
 	{
-		
+		$nidn = $this->session->userdata('no_unique');
 		$data['content']			=	'dosen/page/perwalian';
 		$data['title']				=	'Halaman Perwalian';
 		$data['page']				=	'Perwalian Mahasiswa';
+		$data['collegewali']		=	$this->Mdosen->get_college_wali($nidn);
 		$this->load->view('dosen/app', $data);
 		
 	}
@@ -312,8 +265,8 @@ class Konseling extends CI_Controller {
 		foreach ($list as $isi) {
 			$photo_college =  base_url().$isi->photo_college;
 			$photo_staff =  base_url().$isi->photo_staff;
-			$report = base_url('dosen/konseling/report_consult/').$isi->id_consult;
-			$detail_consult = base_url('dosen/konseling/detail_consult/').$isi->id_consult;
+			$report = base_url('Dosen/konseling/report_consult/').$isi->id_consult;
+			$detail_consult = base_url('Dosen/konseling/detail_consult/').$isi->id_consult;
 			$stat = $isi->id_consult_status;
 			if($stat == '1'){
 				$aksi = '<a class="btn btn-primary btn-sm" href="'.$detail_consult.'"><i class="fas fa-file-alt"></i> Detail Konsultasi</a>';
@@ -425,7 +378,8 @@ class Konseling extends CI_Controller {
 	  }
 	}
 
-	function acc_konseling($status){
+	function acc_konseling(){
+		$status = $this->input->post('status');
 		$id = $this->input->post('id');
 		$data = $this->Mdosen->acc_konseling($id,$status);
 		echo json_encode($data);
@@ -563,13 +517,13 @@ class Konseling extends CI_Controller {
     				<button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button>
    					 <h3 class="text-success"><i class="fa fa-check-circle"></i> Success</h3> Data Berhasil Diupload
 					</div>');
-				redirect('dosen/konseling/chat/'.$id_consult);
+				redirect('Dosen/konseling/chat/'.$id_consult);
 		}else{
 			 $this->session->set_flashdata('alertupload', 
 			 	'<div class="alert alert-warning alertupload">
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
                     <h3 class="text-warning"><i class="fa fa-exclamation-triangle"></i> Upload Gagal</h3>'.$this->upload->display_errors().'</div>');
-          redirect('dosen/konseling/chat/'.$id_consult);
+          redirect('Dosen/konseling/chat/'.$id_consult);
 		}
 	}
 
@@ -645,8 +599,8 @@ class Konseling extends CI_Controller {
 		foreach ($list as $isi) {
 			$photo_college =  base_url().$isi->photo_college;
 			$photo_staff =  base_url().$isi->photo_staff;
-			$report = base_url('dosen/konseling/report_consult/').$isi->id_consult;
-			$detail_consult = base_url('dosen/konseling/detail_consult/').$isi->id_consult;
+			$report = base_url('Dosen/konseling/report_consult/').$isi->id_consult;
+			$detail_consult = base_url('Dosen/konseling/detail_consult/').$isi->id_consult;
 			$stat = $isi->id_consult_status;
 			if($stat == '1'){
 				$status = '<span class="label label-success mr-2">Diterima</span>';

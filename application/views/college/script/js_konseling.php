@@ -26,7 +26,7 @@
             "order": [], 
            
             "ajax": {
-                "url": "<?php echo base_url('college/konseling/konseling')?>",
+                "url": "<?php echo base_url('College/konseling/konseling')?>",
                 "type": "POST"
             },
 
@@ -78,7 +78,7 @@
             "order": [], 
            
             "ajax": {
-                "url": "<?php echo base_url('college/konseling/filterby')?>",
+                "url": "<?php echo base_url('College/konseling/filterby')?>",
                 "type": "POST",
                 "data": {kode_selection:kode_selection},
             },
@@ -142,7 +142,7 @@
             "order": [], 
            
             "ajax": {
-                "url": "<?php echo base_url('college/konseling/status_consult')?>",
+                "url": "<?php echo base_url('College/konseling/status_consult')?>",
                 "type": "POST",
                 "data": {id_consult_status:id_consult_status},
             },
@@ -198,7 +198,7 @@
                           }).then((result) => {
                             if (result.value) {
                                $.ajax({
-                                url:"<?php echo base_url(); ?>college/konseling/delete_konseling",
+                                url:"<?php echo base_url(); ?>College/konseling/delete_konseling",
                                 method:"POST",
                                 beforeSend :function () {
                                             swal.fire({
@@ -245,7 +245,7 @@
 
             // Menggunakan ajax untuk mengirim dan dan menerima data dari server
             $.ajax({
-                url : "<?php echo base_url('college/konseling/get_konselor');?>",
+                url : "<?php echo base_url('College/konseling/get_konselor');?>",
                 method : "POST",
                 data : {kode_selection:kode_selection},
                 async : false,
@@ -277,7 +277,7 @@
                           }).then((result) => {
                             if (result.value) {
                                $.ajax({
-                                url:"<?php echo base_url(); ?>college/konseling/proses_pengajuan",
+                                url:"<?php echo base_url(); ?>College/konseling/proses_pengajuan",
                                 method:"POST",
                                 dataType:"JSON",
                                 data:$('#form-pengajuan').serialize(),
@@ -325,7 +325,7 @@
                                                   'success'
                                                 ).then((result) => 
                                                {
-                                               window.location.href = "<?php echo base_url('college/konseling/')?>";
+                                               window.location.href = "<?php echo base_url('College/konseling/')?>";
                                                
                                                })
 
@@ -366,7 +366,7 @@
                           }).then((result) => {
                             if (result.value) {
                               $.ajax({
-                                url : "<?php echo base_url('college/konseling/acc_konseling')?>/"+status,
+                                url : "<?php echo base_url('College/konseling/acc_konseling')?>/"+status,
                                 type: "POST",
                                 dataType: "JSON",
                                 beforeSend :function () {
@@ -402,13 +402,13 @@
       var status = $('.start_konseling').attr("data-id");
 
                               $.ajax({
-                                url : "<?php echo base_url('college/konseling/start_konseling')?>/"+id,
+                                url : "<?php echo base_url('College/konseling/start_konseling')?>/"+id,
                                 type: "POST",
                                 dataType: "JSON",
                                 data:{id:id, status:status}, 
                                 success:function(data){
                       
-                                window.location.href = '<?php echo base_url('college/konseling/chat')?>/'+id;
+                                window.location.href = '<?php echo base_url('College/konseling/chat')?>/'+id;
                      
                      }
                     })

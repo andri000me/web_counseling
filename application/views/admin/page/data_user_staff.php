@@ -10,7 +10,7 @@
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item">Manajemen User</li>
-                                    <li class="breadcrumb-item" aria-current="page"><a href="<?php echo base_url('admin/user/data_user')?>"><?php echo $page ?> </a></li>
+                                    <li class="breadcrumb-item" aria-current="page"><a href="<?php echo base_url('Admin/user/data_user')?>"><?php echo $page ?> </a></li>
                                    
                                 </ol>
                             </nav>
@@ -89,16 +89,16 @@
                                     <h4 class="card-title mt-4">Rekap Data</h4>
                                 </div>
                                 <div class="list-group">
-                                    <a href="<?php echo base_url('excel/report/report_data_user/ALL'); ?>" class="list-group-item">  
+                                    <a href="<?php echo base_url('Excel/report/report_data_user/ALL'); ?>" class="list-group-item">  
                                         <span class="badge badge-info mr-2"><i class="ti-export"></i></span> Rekap Semua Data
                                     </a>
-                                    <a href="<?php echo base_url('excel/report/report_data_user/KTA'); ?>"  class="list-group-item">
+                                    <a href="<?php echo base_url('Excel/report/report_data_user/KTA'); ?>"  class="list-group-item">
                                         <span class="badge badge-warning text-white mr-2"><i class="ti-export"></i></span> Rekap Ketua/Wali
                                     </a>
-                                    <a href="<?php echo base_url('excel/report/report_data_user/DSN'); ?>"  class="list-group-item">
+                                    <a href="<?php echo base_url('Excel/report/report_data_user/DSN'); ?>"  class="list-group-item">
                                         <span class="badge badge-primary text-white mr-2"><i class="ti-export"></i></span> Rekap Data Dosen Wali
                                     </a>
-                                    <a href="<?php echo base_url('excel/report/report_data_user/BKU'); ?>"  class="list-group-item">
+                                    <a href="<?php echo base_url('Excel/report/report_data_user/BKU'); ?>"  class="list-group-item">
                                         <span class="badge badge-danger text-white mr-2"><i class="ti-export"></i></span> Rekap Data Bagian Keuangan
                                     </a>
                                     
@@ -289,7 +289,7 @@
                                     <div class="row mt-3">
 
                                         <div class="col-md-12">
-                                            <a class="btn btn-info text-white col-md-12 p-3" href="<?php echo base_url("excel/import/format_import_user"); ?>">Unduh Format Import</a>
+                                            <a class="btn btn-info text-white col-md-12 p-3" href="<?php echo base_url("Excel/import/format_import_user"); ?>">Unduh Format Import</a>
                                         </div>
 
                                         <div class="col-md-12">
@@ -299,7 +299,7 @@
 
                                             <div class="collapse" id="collapse_import">
                                                 <div class="card card-body">
-                                                    <form action="<?php echo base_url('excel/import/import_data_user')?>" class="dropzone" id="formimportuser" style="width: 100%" enctype="multipart/form-data" method="post">
+                                                    <form action="<?php echo base_url('Excel/import/import_data_user')?>" class="dropzone" id="formimportuser" style="width: 100%" enctype="multipart/form-data" method="post">
                                                         <div class="fallback">
                                                             <input name="input_import_user" id="input_import_user" type="file" />
                                                         </div>

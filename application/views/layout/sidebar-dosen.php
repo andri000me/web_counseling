@@ -15,11 +15,11 @@ $role = $this->session->userdata('role');
                         <?php 
                         if($role == 'DSN'){ ?>
                         <!-- User Profile-->
-                        <li class="sidebar-item"> <a href="<?php echo base_url('dosen/dashboard')?>" class="sidebar-link waves-effect waves-dark" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Dashboard </span></a>
+                        <li class="sidebar-item"> <a href="<?php echo base_url('Dosen/dashboard')?>" class="sidebar-link waves-effect waves-dark" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Dashboard </span></a>
                         </li>
-                        <li class="sidebar-item"> <a href="<?php echo base_url('dosen/konseling')?>" class="sidebar-link waves-effect waves-dark"  aria-expanded="false"><i class="mdi mdi-book-open"></i><span class="hide-menu">Aktifitas Konseling</span></a>
+                        <li class="sidebar-item"> <a href="<?php echo base_url('Dosen/konseling')?>" class="sidebar-link waves-effect waves-dark"  aria-expanded="false"><i class="mdi mdi-book-open"></i><span class="hide-menu">Aktifitas Konseling</span></a>
                         </li>
-                        <li class="sidebar-item"> <a href="<?php echo base_url('dosen/konseling/perwalian')?>" class="sidebar-link waves-effect waves-dark"  aria-expanded="false"><i class="mdi mdi-account-multiple"></i><span class="hide-menu">Perwalian Mahasiswa</span></a>
+                        <li class="sidebar-item"> <a href="<?php echo base_url('Dosen/konseling/perwalian')?>" class="sidebar-link waves-effect waves-dark"  aria-expanded="false"><i class="mdi mdi-account-multiple"></i><span class="hide-menu">Perwalian Mahasiswa</span></a>
                         
                         </li>
                         <?php } ?>
@@ -27,9 +27,9 @@ $role = $this->session->userdata('role');
                         <?php if ($role == 'BKU') { ?>
 
                         <!-- User Profile-->
-                        <li class="sidebar-item"> <a href="<?php echo base_url('dosen/dashboard')?>" class="sidebar-link waves-effect waves-dark" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Dashboard </span></a>
+                        <li class="sidebar-item"> <a href="<?php echo base_url('Dosen/dashboard')?>" class="sidebar-link waves-effect waves-dark" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Dashboard </span></a>
                         </li>
-                        <li class="sidebar-item"> <a href="<?php echo base_url('dosen/konseling')?>" class="sidebar-link waves-effect waves-dark"  aria-expanded="false"><i class="mdi mdi-book-open"></i><span class="hide-menu">Aktifitas Konseling</span></a>
+                        <li class="sidebar-item"> <a href="<?php echo base_url('Dosen/konseling')?>" class="sidebar-link waves-effect waves-dark"  aria-expanded="false"><i class="mdi mdi-book-open"></i><span class="hide-menu">Aktifitas Konseling</span></a>
                         </li>
 
                         <?php } ?>
@@ -38,13 +38,13 @@ $role = $this->session->userdata('role');
                         <?php if ($role == 'KTA') { ?>
 
                         <!-- User Profile-->
-                        <li class="sidebar-item"> <a href="<?php echo base_url('dosen/dashboard')?>" class="sidebar-link waves-effect waves-dark" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Dashboard </span></a>
+                        <li class="sidebar-item"> <a href="<?php echo base_url('Dosen/dashboard')?>" class="sidebar-link waves-effect waves-dark" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Dashboard </span></a>
                         </li>
-                        <li class="sidebar-item"> <a href="<?php echo base_url('dosen/konseling/ketua_consult')?>" class="sidebar-link waves-effect waves-dark"  aria-expanded="false"><i class="mdi mdi-book-open"></i><span class="hide-menu">Report Konseling</span></a>
+                        <li class="sidebar-item"> <a href="<?php echo base_url('Dosen/konseling/ketua_consult')?>" class="sidebar-link waves-effect waves-dark"  aria-expanded="false"><i class="mdi mdi-book-open"></i><span class="hide-menu">Report Konseling</span></a>
                         </li>
 
                         <?php } ?>
-                         <li class="sidebar-item"><a href="<?php echo base_url('article/article')?>" class="sidebar-link  waves-dark" aria-expanded="false"><i class="mdi mdi-newspaper"></i><span class="hide-menu">Artikel</span></a>
+                         <li class="sidebar-item"><a href="<?php echo base_url('Article/article')?>" class="sidebar-link  waves-dark" aria-expanded="false"><i class="mdi mdi-newspaper"></i><span class="hide-menu">Artikel</span></a>
                         </li>
                     </ul>
                 </nav>

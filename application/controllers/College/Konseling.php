@@ -28,8 +28,8 @@ class Konseling extends CI_Controller {
 		
 		foreach ($list as $isi) {
 			$photo =  base_url().$isi->photo_staff;
-			$report = base_url('college/konseling/report_consult/').$isi->id_consult;
-			$detail_consult = base_url('college/konseling/detail_consult/').$isi->id_consult;
+			$report = base_url('College/konseling/report_consult/').$isi->id_consult;
+			$detail_consult = base_url('College/konseling/detail_consult/').$isi->id_consult;
 			$stat = $isi->id_consult_status;
 			if($stat == '1'){
 				$status = '<span class="label label-success mr-2">Diterima</span>';
@@ -91,8 +91,8 @@ class Konseling extends CI_Controller {
 		
 		foreach ($list as $isi) {
 			$photo =  base_url().$isi->photo_staff;
-			$report = base_url('college/konseling/report_consult/').$isi->id_consult;
-			$detail_consult = base_url('college/konseling/detail_consult/').$isi->id_consult;
+			$report = base_url('College/konseling/report_consult/').$isi->id_consult;
+			$detail_consult = base_url('College/konseling/detail_consult/').$isi->id_consult;
 			$stat = $isi->id_consult_status;
 			if($stat == '1'){
 				$status = '<span class="label label-success mr-2">Diterima</span>';
@@ -155,8 +155,8 @@ class Konseling extends CI_Controller {
 		
 		foreach ($list as $isi) {
 			$photo =  base_url().$isi->photo_staff;
-			$report = base_url('college/konseling/report_consult/').$isi->id_consult;
-			$detail_consult = base_url('college/konseling/detail_consult/').$isi->id_consult;
+			$report = base_url('College/konseling/report_consult/').$isi->id_consult;
+			$detail_consult = base_url('College/konseling/detail_consult/').$isi->id_consult;
 			$stat = $isi->id_consult_status;
 			if($stat == '1'){
 				$status = '<span class="label label-success mr-2">Diterima</span>';
@@ -425,13 +425,13 @@ class Konseling extends CI_Controller {
     				<button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button>
    					 <h3 class="text-success"><i class="fa fa-check-circle"></i> Success</h3> Data Berhasil Diupload
 					</div>');
-				redirect('college/konseling/chat/'.$id_consult);
+				redirect('College/konseling/chat/'.$id_consult);
 		}else{
 			 $this->session->set_flashdata('alertupload', 
 			 	'<div class="alert alert-warning alertupload">
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
                     <h3 class="text-warning"><i class="fa fa-exclamation-triangle"></i> Upload Gagal</h3>'.$this->upload->display_errors().'</div>');
-          redirect('college/konseling/chat/'.$id_consult);
+          redirect('College/konseling/chat/'.$id_consult);
 		}
 	}
 
@@ -479,7 +479,7 @@ class Konseling extends CI_Controller {
 	    $this->load->library('pdf');
 	    $customPaper = array(0,0,381.89,595.28);
 	    $this->pdf->setPaper($customPaper, 'landscape');
-	    $this->pdf->load_view('college/report/result_consult_pdf', $data);
+	    $this->pdf->load_view('report/report_consult_chat', $data);
 	}
 
 	//==================== detail konslutasi ========================

@@ -8,7 +8,7 @@ class Dashboard extends CI_Controller {
 		
 		$sess = $this->session->userdata('role');
 		$sess_no = $this->session->userdata('no_unique');
-		$data['content']			=	'admin/page/dashboard';
+		$data['content']			=	'Admin/page/dashboard';
 		$data['title']				=	'Halaman Admin - Dashboard';
 		$data['user']				= 	$this->Madmin->get_user($sess_no);
 		$data['article']			=	$this->Marticle->get_article_dashboard();

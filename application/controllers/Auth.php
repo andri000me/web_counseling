@@ -70,22 +70,22 @@ class Auth extends CI_Controller {
 		$sess = $this->session->userdata('role');
 		$sess_no = $this->session->userdata('no_unique');
 		if ($sess == 'ADM'){
-			redirect('admin/dashboard');
+			redirect('Admin/dashboard');
 		}else if($sess == 'BKU' ){
-			redirect('dosen/dashboard');
+			redirect('Dosen/dashboard');
 		}else if($sess == 'DSN' ){
-			redirect('dosen/dashboard');
+			redirect('Dosen/dashboard');
 		
 		}else if($sess == 'KTA' ){
-			redirect('dosen/dashboard');
+			redirect('Dosen/dashboard');
 		
 		}else if($sess == 'MHS'){
-			redirect('college/dashboard');
+			redirect('College/dashboard');
 		}
 	}
 
 	public function logout(){
 		$this->session->sess_destroy();
-		redirect('auth');
+		redirect('Auth');
 	}
 }

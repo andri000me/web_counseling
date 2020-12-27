@@ -7,7 +7,7 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item active">Konseling</li>
-                            <li class="breadcrumb-item"><a href="<?php echo base_url('college/konseling')?>">Aktifitas Konseling</a></li>
+                            <li class="breadcrumb-item"><a href="<?php echo base_url('College/konseling')?>">Aktifitas Konseling</a></li>
                             <li class="breadcrumb-item"><a href=""><?php echo $page ?></a></li>
                         </ol>
                     </nav>

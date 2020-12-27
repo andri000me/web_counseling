@@ -11,7 +11,7 @@
             "order": [], 
            
             "ajax": {
-                "url": "<?php echo base_url('admin/user/list_user')?>",
+                "url": "<?php echo base_url('Admin/user/list_user')?>",
                 "type": "POST"
             },
 
@@ -39,7 +39,7 @@
 
     $("#formimportuser").dropzone({ 
         autoProcessQueue: false,
-        url: "<?php echo base_url('excel/import/import_data_user')?>",
+        url: "<?php echo base_url('Excel/import/import_data_user')?>",
         method: "POST",
         maxFiles: 1,
         method:"post",
@@ -109,7 +109,7 @@
                  prod.style.display = 'none';
             }else{
                  $.ajax({
-                url : "<?php echo base_url('admin/user/get_prodi');?>",
+                url : "<?php echo base_url('Admin/user/get_prodi');?>",
                 method : "POST",
                 data : {id_role:id_role},
                 async : false,
@@ -135,7 +135,7 @@
         e.preventDefault();
         $.ajax({
             type: "post",
-            url : "<?php echo base_url('admin/user/add_user')?>",
+            url : "<?php echo base_url('Admin/user/add_user')?>",
             data: $(this).serialize(),
             dataType: "json",
             beforeSend: function(){
@@ -244,7 +244,7 @@
         $('input,select').removeClass('is-invalid is-valid');
         //Ajax Load data from ajax
         $.ajax({
-            url : "<?php echo base_url('admin/user/get_user/')?>/" + id,
+            url : "<?php echo base_url('Admin/user/get_user/')?>/" + id,
             type: "GET",
             dataType: "JSON",
             success: function(data)
@@ -273,7 +273,7 @@
         e.preventDefault();
         $.ajax({
             type: "post",
-            url : "<?php echo base_url('admin/user/edit_user')?>",
+            url : "<?php echo base_url('Admin/user/edit_user')?>",
             data: $(this).serialize(),
             dataType: "JSON",
             beforeSend: function(){
@@ -399,7 +399,7 @@
                           }).then((result) => {
                             if (result.value) {
                               $.ajax({
-                                url : "<?php echo base_url('admin/user/delete_user')?>/"+nidn,
+                                url : "<?php echo base_url('Admin/user/delete_user')?>/"+nidn,
                                 type: "POST",
                                 dataType: "JSON",
                                 beforeSend :function () {

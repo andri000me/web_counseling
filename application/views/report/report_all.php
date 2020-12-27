@@ -54,12 +54,21 @@
     .bottom{
         margin-top: 25%;
     }
+    .box-date{
+        width:40%;
+        border: 1px solid #000000;
+        padding: 10px;
+    }
 </style>
 </head>
 <body class="A4">
     <section class="sheet padding-10mm">
         <h3>REKAP SEMUA DATA KONSULTASI</h3>
         <hr>
+        <div class="box-date">
+        <p>Rekap Dari Tanggal : <?php echo $date_start; ?><br>
+        Sampai Tanggal : <?php echo $date_end; ?></p>
+        </div>
         <?php foreach ($data as $row ) {
                         $prodi_staff = $row->id_prodi_staff;
                         $prodi_college = $row->id_prodi_college;

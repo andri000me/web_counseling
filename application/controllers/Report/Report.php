@@ -11,14 +11,21 @@ class Report extends CI_Controller {
 public function report_all(){
 		$nidn = $this->input->post('nidn');
 		$nim = $this->input->post('pilih_college');
+		$date_start = $this->input->post('date_start');
+		$date_end = $this->input->post('date_end');
 		if ($nim != ''){
-		$data['data'] 		=  $this->Mreport->report_all_college($nim,$nidn);
+		$data['data'] 		=  $this->Mreport->report_all_college($nim,$nidn,$date_start,$date_end);
+		$data['date_start'] =  $date_start;
+		$data['date_end'] 	=  $date_end;
+
 		$this->load->library('pdf');
 	    $customPaper = array(0,0,381.89,595.28);
 	    $this->pdf->setPaper($customPaper, 'landscape');
 	    $this->pdf->load_view('report/report_all_college', $data);
 		}else{
-		$data['data'] 		=  $this->Mreport->report_all($nidn);
+		$data['data'] 		=  $this->Mreport->report_all($nidn,$date_start,$date_end);
+		$data['date_start'] =  $date_start;
+		$data['date_end'] 	=  $date_end;
 		$this->load->library('pdf');
 	    $customPaper = array(0,0,381.89,595.28);
 	    $this->pdf->setPaper($customPaper, 'landscape');

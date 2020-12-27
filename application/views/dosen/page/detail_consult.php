@@ -19,7 +19,7 @@
                 <?php foreach ($detail_consult as $href) { ?>
                 <div class="col-7 align-self-center">
                     <div class="d-flex no-block justify-content-end align-items-center">
-                        <a href="<?php echo base_url('report/report/report_detail_consult/'.$href->id_consult)?>" class="btn btn-primary"><i class="mdi mdi-export"></i> Buat Rekap</a>
+                        <a href="<?php echo base_url('Report/report/report_detail_consult/'.$href->id_consult)?>" class="btn btn-primary"><i class="mdi mdi-export"></i> Buat Rekap</a>
                     </div>
                 </div>
             </div>

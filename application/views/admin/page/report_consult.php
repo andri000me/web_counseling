@@ -90,7 +90,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <h5 >Rekap Chat</h5>
-                                <a href="<?php echo base_url('dosen/konseling/historychatpdf/').$user->id_consult ?>"  class="label label-primary text-white"><i class="fa fa-download"></i> Unduh</a>
+                                <a href="<?php echo base_url('Dosen/konseling/historychatpdf/').$user->id_consult ?>"  class="label label-primary text-white"><i class="fa fa-download"></i> Unduh</a>
                                 <h5 class="m-t-30">Catatan Dari Konselor</h5>
                                  <a href="javascript:void(0)" onclick="showcatatan();"  class="label label-primary text-white"><i class="fa fa-file"> </i> Lihat Catatan</a>
                                 <input type="hidden" id="inputcatatan" value="<?php echo $user->catatan ?>">
@@ -109,7 +109,7 @@
                                  ?>
                                 <div class="d-flex flex-row comment-row m-t-0">
                                     <div class="comment-text w-100">
-                                        <a  href="<?php echo base_url('dosen/konseling/download_file/'.$file->id_file)?>" target="_blank" class="label label-rounded label-primary m-b-15 text-white"><?php echo $file->file; ?></a>
+                                        <a  href="<?php echo base_url('Dosen/konseling/download_file/'.$file->id_file)?>" target="_blank" class="label label-rounded label-primary m-b-15 text-white"><?php echo $file->file; ?></a>
                                         <div class="comment-footer mt-3">
                                             <span class="text-muted float-right"><?php echo $datesend; ?></span> 
                                         </div>

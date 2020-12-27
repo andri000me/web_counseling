@@ -81,8 +81,8 @@ $consult_notif = $this->Mnotif->getnotifconsult($no_unique);
                                                 ?>
 
                                             <!-- Message -->
-                                            <?php if ($readed == ''){ ?>
-                                                <a type="button" label="<?php echo $cn->name ?>" class="message-item bg-muted notif_consult" data-id="<?php echo $cn->id_consult ?>"  >
+                                            <?php if ($readed == '0'){ ?>
+                                                <a type="button" label="<?php echo $cn->name ?>" id="<?php echo $cn->id_consult ?>" class="message-item bg-muted notif_consult"   >
                                                     <img src="<?php echo base_url().$cn->photo ?>" alt="user"
                                                     class="rounded-circle" width="40" />
                                                     <div class="mail-contnet">
@@ -94,7 +94,7 @@ $consult_notif = $this->Mnotif->getnotifconsult($no_unique);
                                                 </a>
 
                                             <?php }else{ ?>
-                                                 <a type="button" label="<?php echo $cn->name ?>" class="message-item notif_consult" data-id="<?php echo $cn->id_consult ?>" >
+                                                 <a type="button" label="<?php echo $cn->name ?>" id="<?php echo $cn->id_consult ?>" class="message-item notif_consult"  >
                                                     <img src="<?php echo base_url().$cn->photo ?>" alt="user"
                                                 class="rounded-circle" width="40" />
                                                     <div class="mail-contnet">
@@ -162,8 +162,8 @@ $consult_notif = $this->Mnotif->getnotifconsult($no_unique);
                                         <h4 class="mb-0"><?php echo $d->name; ?></h4>
                                     </div>
                                 </div>
-                                <a class="dropdown-item" href="<?php echo base_url('profile/profile')?>"><i class="ti-user mr-1 ml-1"></i> Profil Saya</a>
-                                <a class="dropdown-item" href="<?php echo base_url('auth/logout')?>"><i class="fa fa-power-off mr-1 ml-1"></i> Logout</a>
+                                <a class="dropdown-item" href="<?php echo base_url('Profile/profile')?>"><i class="ti-user mr-1 ml-1"></i> Profil Saya</a>
+                                <a class="dropdown-item" href="<?php echo base_url('Auth/logout')?>"><i class="fa fa-power-off mr-1 ml-1"></i> Logout</a>
                             </div>
                         </li>
                     <?php } ?>
@@ -181,7 +181,7 @@ $consult_notif = $this->Mnotif->getnotifconsult($no_unique);
             $(document).ready(function(){
                 setInterval(function(){
                     $.ajax({
-                        url:"<?php echo base_url('dosen/notification/count_consult')?>",
+                        url:"<?php echo base_url('Dosen/notification/count_consult')?>",
                         type:"POST",
                         dataType:"JSON",
                         data:{},
@@ -194,7 +194,7 @@ $consult_notif = $this->Mnotif->getnotifconsult($no_unique);
 
                 setInterval(function(){
                     $.ajax({
-                        url:"<?php echo base_url('dosen/notification/count_message')?>",
+                        url:"<?php echo base_url('Dosen/notification/count_message')?>",
                         type:"POST",
                         dataType:"JSON",
                         data:{},
@@ -213,54 +213,24 @@ $consult_notif = $this->Mnotif->getnotifconsult($no_unique);
 
 
     
-                //status consult table
-     $('.notif_consult').on('click', function () { 
-        window.location.href = "<?php echo base_url('dosen/konseling')?>";
-         $(".table_konseling").dataTable().fnDestroy();
-        var id_consult = $('.notif_consult').attr("data-id");
+        $('.notif_consult').on('click', function () { 
+        var id_consult = $(this).attr("id");
         var namepage = $('.notif_consult').attr("label");
         $(".status_consult").removeClass("active");
         $("#status_terbaru").addClass("active");
-        $("#page").html('<i class="mdi mdi-chevron-right"></i> '+namepage);
-         table_konseling = $('.table_konseling').DataTable({
-             createdRow: function( row, data, dataIndex ) {
-                $(row).find('td').addClass('max-texts');
-            },
-            "bLengthChange": false,
-            "bFilter": true,
-            "bInfo": false,
-            "bAutoWidth": false,
-            "ordering": false,
-            "processing": true, 
-            "serverSide": true,
-            "order": [], 
-           
-            "ajax": {
-                "url": "<?php echo base_url('dosen/konseling/notif_consult')?>",
-                "type": "POST",
-                "data": {id_consult:id_consult},
-            },
+        $.ajax({
+                        url:"<?php echo base_url('Dosen/konseling/notif_consult')?>",
+                        type:"POST",
+                        dataType:"JSON",
+                        data:{id_consult:id_consult},
+                        success:function(data){
+                             window.location.href = "<?php echo base_url('Dosen/konseling')?>";
+                        }
+                    });
+         
+            
 
-            "columnDefs": [
-            { 
-                "targets": [ -1 ], 
-                "orderable": false, 
-
-            },
-            ],
-
-            "oLanguage": {
-            "sZeroRecords": "Tidak ada data yang tersedia"
-            },
-            "fnInitComplete": function ( oSettings ) {
-            oSettings.oLanguage.sZeroRecords = "Data tidak ditemukan"
-            }
-
-         });
-           $("#table_konseling_filter").detach()
-           $('#search_konseling').keyup(function(){
-                  table_konseling.search($(this).val()).draw();
-            })
         })
+
 
         </script>

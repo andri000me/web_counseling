@@ -18,7 +18,7 @@
             "order": [], 
            
             "ajax": {
-                "url": "<?php echo base_url('article/article/list_article')?>",
+                "url": "<?php echo base_url('Article/article/list_article')?>",
                 "type": "POST"
             },
 
@@ -60,7 +60,7 @@
 	        $.ajax({
 	            type: "POST",
 	            enctype: 'multipart/form-data',
-	            url: '<?php echo base_url('article/article/add_article')?>',
+	            url: '<?php echo base_url('Article/article/add_article')?>',
 	            data: data,
 	            dataType: 'JSON',
 	            processData: false,
@@ -162,7 +162,7 @@
                           }).then((result) => {
                             if (result.value) {
                                $.ajax({
-                                url:"<?php echo base_url(); ?>article/article/delete_article",
+                                url:"<?php echo base_url(); ?>Article/article/delete_article",
                                 method:"POST",
                                 beforeSend :function () {
                                             swal.fire({
@@ -214,7 +214,7 @@
                           }).then((result) => {
                             if (result.value) {
                                $.ajax({
-                                url:"<?php echo base_url(); ?>article/article/update_status/"+id,
+                                url:"<?php echo base_url(); ?>Article/article/update_status/"+id,
                                 method:"POST",
                                 beforeSend :function () {
                                             swal.fire({

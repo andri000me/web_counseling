@@ -93,7 +93,7 @@
                             <div class="p-25 border-top m-t-15">
                                 <div class="row text-center">
                                     <div class="col-12 ">
-                                        <a href="<?php echo base_url('profile/profile/profile_college')?>" class="link d-flex align-items-center justify-content-center font-medium"><i class="mdi mdi-account font-20 m-r-5"></i>Lihat Profile</a>
+                                        <a href="<?php echo base_url('Profile/profile/profile_college')?>" class="link d-flex align-items-center justify-content-center font-medium"><i class="mdi mdi-account font-20 m-r-5"></i>Lihat Profile</a>
                                     </div>
                                 </div>
                             </div>
@@ -137,7 +137,7 @@
                                 <h5 class="m-t-30">Konselor</h5>
                                 <span><?php echo $last->name; ?></span>
                                 <br/>
-                                <a href="<?php echo base_url('college/konseling')?>" class="m-t-20 btn waves-effect waves-light btn-success">Lihat</a>
+                                <a href="<?php echo base_url('College/konseling')?>" class="m-t-20 btn waves-effect waves-light btn-success">Lihat</a>
                             </div>
                         </div>
                         <?php } ?>

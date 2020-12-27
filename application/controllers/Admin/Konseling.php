@@ -32,8 +32,8 @@ class Konseling extends CI_Controller {
 		foreach ($list as $isi) {
 			$photo_college =  base_url().$isi->photo_college;
 			$photo_staff =  base_url().$isi->photo_staff;
-			$report = base_url('admin/konseling/report_consult/').$isi->id_consult;
-			$detail_consult = base_url('admin/konseling/detail_consult/').$isi->id_consult;
+			$report = base_url('Admin/konseling/report_consult/').$isi->id_consult;
+			$detail_consult = base_url('Admin/konseling/detail_consult/').$isi->id_consult;
 			$stat = $isi->id_consult_status;
 			if($stat == '1'){
 				$status = '<span class="label label-success mr-2">Diterima</span>';
@@ -93,8 +93,8 @@ class Konseling extends CI_Controller {
 		foreach ($list as $isi) {
 			$photo_college =  base_url().$isi->photo_college;
 			$photo_staff =  base_url().$isi->photo_staff;
-			$report = base_url('admin/konseling/report_consult/').$isi->id_consult;
-			$detail_consult = base_url('admin/konseling/detail_consult/').$isi->id_consult;
+			$report = base_url('Admin/konseling/report_consult/').$isi->id_consult;
+			$detail_consult = base_url('Admin/konseling/detail_consult/').$isi->id_consult;
 			$stat = $isi->id_consult_status;
 			if($stat == '1'){
 				$status = '<span class="label label-success mr-2">Diterima</span>';
@@ -155,8 +155,8 @@ class Konseling extends CI_Controller {
 		foreach ($list as $isi) {
 			$photo_college =  base_url().$isi->photo_college;
 			$photo_staff =  base_url().$isi->photo_staff;
-			$report = base_url('admin/konseling/report_consult/').$isi->id_consult;
-			$detail_consult = base_url('admin/konseling/detail_consult/').$isi->id_consult;
+			$report = base_url('Admin/konseling/report_consult/').$isi->id_consult;
+			$detail_consult = base_url('Admin/konseling/detail_consult/').$isi->id_consult;
 			$stat = $isi->id_consult_status;
 			if($stat == '1'){
 				$status = '<span class="label label-success mr-2">Diterima</span>';
@@ -241,7 +241,7 @@ class Konseling extends CI_Controller {
 
 	public function historychatpdf($id_consult){
 		$data['data'] 		= $this->Madmin->get_historychat($id_consult);
-	    $this->load->library('pdf');
+	    $this->load->library('Pdf');
 	    $customPaper = array(0,0,381.89,595.28);
 	    $this->pdf->setPaper($customPaper, 'landscape');
 	    $this->pdf->load_view('admin/report/result_consult_pdf', $data);
@@ -284,7 +284,7 @@ class Konseling extends CI_Controller {
 			$row[] = '<small>'.$isi->prodi;
 			$row[] = '<small>'.$isi->gender;
 			$row[] = '<small>'.$count_perwali;
-			$row[] = '<a class="btn btn-sm btn-primary" href="'.$url.'admin/konseling/select_wali/'.$isi->nidn.'">Perwalian</a>';
+			$row[] = '<a class="btn btn-sm btn-primary" href="'.$url.'Admin/konseling/select_wali/'.$isi->nidn.'">Perwalian</a>';
 
 			//add html for action
 					

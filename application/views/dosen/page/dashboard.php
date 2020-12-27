@@ -150,7 +150,7 @@
                             </div>
                             <hr>
                              <div class="col-md-12 d-flex justify-content-center mb-3">
-                                <a href="<?php echo base_url('article/article') ?>" class=" col-md-9 font-17 btn btn-primary btn-rounded" >Lihat Semua</a>
+                                <a href="<?php echo base_url('Article/article') ?>" class=" col-md-9 font-17 btn btn-primary btn-rounded" >Lihat Semua</a>
                             </div>
                         </div>
                     </div>

@@ -20,7 +20,7 @@
         e.preventDefault();
         $.ajax({
             type: "post",
-            url : "<?php echo base_url('profile/profile/change_profile_college')?>",
+            url : "<?php echo base_url('Profile/profile/change_profile_college')?>",
             data: $(this).serialize(),
             dataType: "JSON",
             beforeSend: function(){
@@ -106,7 +106,7 @@
         e.preventDefault();
         $.ajax({
             type: "post",
-            url : "<?php echo base_url('profile/profile/change_auth')?>",
+            url : "<?php echo base_url('Profile/profile/change_auth')?>",
             data: $(this).serialize(),
             dataType: "JSON",
             beforeSend: function(){
@@ -172,7 +172,7 @@
 
     $("#form_photo").dropzone({ 
         autoProcessQueue: false,
-        url: "<?php echo base_url('profile/profile/change_photo_college')?>",
+        url: "<?php echo base_url('Profile/profile/change_photo_college')?>",
         method: "POST",
         maxFiles: 1,
         method:"post",

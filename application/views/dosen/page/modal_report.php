@@ -9,8 +9,18 @@
                 </button>
               </div>
               <div class="modal-body">
-                <form action="<?php echo base_url('report/report/report_all')?>" method="POST" style="width: 100%" enctype="multipart/form-data">
+                <form action="<?php echo base_url('Report/report/report_all')?>" method="POST" style="width: 100%" enctype="multipart/form-data">
                     <input type="hidden" name="nidn" id="nidn" value="<?php echo $this->session->userdata('no_unique')?>">
+                    <div class="form-group row" id="report_date_college" >
+                        <div class="col-md-6">
+                          <label >Dari Tanggal</label>
+                          <input type="date" value="<?php echo date('Y-m-d') ?>" class="form-control " name="date_start" >
+                        </div>
+                        <div class="col-md-6">
+                          <label >Sampai Tanggal</label>
+                          <input type="date" value="<?php echo date('Y-m-d') ?>" class="form-control" name="date_end">
+                        </div>
+                      </div>
                     <div class="form-group">
                         <label class="col-md-12">Pilihan Rekap</label>
                             <div class="col-md-12">
@@ -29,6 +39,7 @@
                                 </select>
                             </div>
                         </div>
+                     
                   <div class="modal-footer">
                     <button type="submit" class="btn btn-primary">Buat Rekap</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Kembali</button>
@@ -51,7 +62,7 @@
                 </button>
               </div>
               <div class="modal-body">
-                <form action="<?php echo base_url('report/report/report_all_wali')?>" method="POST" style="width: 100%" enctype="multipart/form-data">
+                <form action="<?php echo base_url('Report/report/report_all_wali')?>" method="POST" style="width: 100%" enctype="multipart/form-data">
                     <input type="text" name="nidn_wali" id="nidn_wali" value="<?php echo $this->session->userdata('no_unique')?>">
                     <div class="form-group">
                         <label class="col-md-12">Pilihan Rekap</label>

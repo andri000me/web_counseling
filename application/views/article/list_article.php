@@ -42,7 +42,7 @@
                                 <button type="button" class="btn btn-outline-secondary font-18 delete_article" id="delete_article"><i class="mdi mdi-delete"></i></button>
                             </div>
                             <div class="btn-group mr-2" role="group" aria-label="Button group with nested dropdown">
-                                <a  class="btn btn-danger pt-2 font-16" href="<?php echo base_url('article/article/new_article')?>">Artikel Baru</a>
+                                <a  class="btn btn-danger pt-2 font-16" href="<?php echo base_url('Article/article/new_article')?>">Artikel Baru</a>
                             </div>
                         </div>
                     </div>

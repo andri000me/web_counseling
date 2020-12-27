@@ -13,7 +13,7 @@
 
                                          <div class="ml-auto">
                                             <div class="btn-group m-r-10" role="group" aria-label="Button group with nested dropdown">
-                                                 <a href="<?php echo base_url('dosen/konseling')?>" class="btn btn-outline-secondary " ><i class="mdi mdi-arrow-left-bold"></i></a>
+                                                 <a href="<?php echo base_url('Dosen/konseling')?>" class="btn btn-outline-secondary " ><i class="mdi mdi-arrow-left-bold"></i></a>
                                                 <button type="button" class="btn btn-outline-secondary " onclick="location.reload();"><i class="mdi mdi-reload"></i></button>
                                             </div>
                                             <div class="btn-group m-r-10" role="group" aria-label="Button group with nested dropdown">
@@ -44,7 +44,7 @@
                                     <div class="col-3">
                                         <a class="btn-circle btn-lg btn-cyan float-right text-white pl-3 ml-1 btnSend" id="nav_down" href="javascript:void(0)"><i class="fas fa-paper-plane"></i></a>
 
-                                        <form method="POST" action="<?php echo base_url('dosen/konseling/upload_file')?>" enctype="multipart/form-data"  id="formupload">
+                                        <form method="POST" action="<?php echo base_url('Dosen/konseling/upload_file')?>" enctype="multipart/form-data"  id="formupload">
                                             <?php foreach ($id_consult as $row ) { ?>
                                                 <input type="hidden" value="<?php echo $row->id ?>" name="id_consult" id="id_consult">
                                                 <input type="hidden" value="<?php echo $row->nidn ?>" name="id_user" id="id_user">
@@ -84,7 +84,7 @@
                                     <div class="p-2"><img src="<?php echo $photo ?>" alt="user" width="50" class="rounded-circle"></div>
                                     <div class="comment-text w-100">
                                         <h6 class="font-medium mb-3"> <?php echo $name ?> </h6>
-                                        <a  href="<?php echo base_url('dosen/konseling/download_file/'.$file->id_file)?>" target="_blank" class="label label-rounded label-primary m-b-15 text-white"><?php echo $file->file; ?></a>
+                                        <a  href="<?php echo base_url('Dosen/konseling/download_file/'.$file->id_file)?>" target="_blank" class="label label-rounded label-primary m-b-15 text-white"><?php echo $file->file; ?></a>
                                         <div class="comment-footer mt-3">
                                             <span class="text-muted float-right"><?php echo $datesend; ?></span> 
                                                     <a href="javascript:void(0)" id="<?php echo $file->id_file ?>" class="text-muted deletefile"><i class="ti-trash"></i></a>

@@ -12,7 +12,7 @@
             "order": [], 
            
             "ajax": {
-                "url": "<?php echo base_url('admin/konseling/list_perwalian')?>",
+                "url": "<?php echo base_url('Admin/konseling/list_perwalian')?>",
                 "type": "POST"
             },
 
@@ -97,7 +97,7 @@
                        });
 
                      $.ajax({
-                    url: "<?php echo base_url('admin/konseling/proses_selected');?>",
+                    url: "<?php echo base_url('Admin/konseling/proses_selected');?>",
                     method: "POST",
                     data :{nim:nim,nidn:nidn,not_nim:not_nim},
                     success : function(data){

@@ -12,7 +12,7 @@
                                 <div class="container-fluid">
                                     <div class="col-md-12">
                                         <div class="card card-body">
-                                            <form action="<?php echo base_url('profile/profile/change_foto')?>" class="dropzone" id="form_photo" style="width: 100%" enctype="multipart/form-data" method="post">
+                                            <form action="<?php echo base_url('Profile/profile/change_foto')?>" class="dropzone" id="form_photo" style="width: 100%" enctype="multipart/form-data" method="post">
                                                 <div class="fallback">
                                                     <input name="input_photo" id="input_photo" type="file" />
                                                 </div>

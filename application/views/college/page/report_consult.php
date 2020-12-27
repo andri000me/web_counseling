@@ -7,7 +7,7 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item active">Konseling</li>
-                            <li class="breadcrumb-item"><a href="<?php echo base_url('college/konseling')?>">Aktifitas Konseling</a></li>
+                            <li class="breadcrumb-item"><a href="<?php echo base_url('College/konseling')?>">Aktifitas Konseling</a></li>
                             <li class="breadcrumb-item"><a href=""><?php echo $page ?></a></li>
                         </ol>
                     </nav>
@@ -94,8 +94,8 @@
                          <!-- column -->
                         <div class="card">
                             <div class="card-body">
-                                <h5 >Rekap Chat</h5>
-                                <a href="<?php echo base_url('college/konseling/historychatpdf/').$user->id_consult ?>"  class="label label-primary text-white"><i class="fa fa-download"></i> Unduh</a>
+                                <h5 >Rekap Konseling</h5>
+                                <a href="<?php echo base_url('Report/report/report_consult_chat/').$user->id_consult ?>"  class="label label-primary text-white"><i class="fa fa-download"></i> Unduh</a>
                                 <h5 class="m-t-30">Catatan Dari Konselor</h5>
                                  <a href="javascript:void(0)" onclick="showcatatan();"  class="label label-primary text-white"><i class="fa fa-file"> </i> Lihat Catatan</a>
                                 <input type="hidden" id="inputcatatan" value="<?php echo $user->catatan ?>">
@@ -125,7 +125,7 @@
                                     <div class="p-2"><img src="<?php echo $photo ?>" alt="user" width="50" class="rounded-circle"></div>
                                     <div class="comment-text w-100">
                                         <h6 class="font-medium mb-3"> <?php echo $name ?> </h6>
-                                        <a  href="<?php echo base_url('college/konseling/download_file/'.$file->id_file)?>" target="_blank" class="label label-rounded label-primary m-b-15 text-white"><?php echo $file->file; ?></a>
+                                        <a  href="<?php echo base_url('College/konseling/download_file/'.$file->id_file)?>" target="_blank" class="label label-rounded label-primary m-b-15 text-white"><?php echo $file->file; ?></a>
                                         <div class="comment-footer mt-3">
                                             <span class="text-muted float-right"><?php echo $datesend; ?></span> 
                                         </div>

@@ -10,7 +10,7 @@
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item">Manajemen User</li>
-                                    <li class="breadcrumb-item" aria-current="page"><a href="<?php echo base_url('admin/konseling/perwalian')?>"><?php echo $page ?> </a></li>
+                                    <li class="breadcrumb-item" aria-current="page"><a href="<?php echo base_url('Admin/konseling/perwalian')?>"><?php echo $page ?> </a></li>
                                    
                                 </ol>
                             </nav>

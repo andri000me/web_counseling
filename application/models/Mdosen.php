@@ -10,6 +10,15 @@ class Mdosen extends CI_Model {
 	{
 		parent::__construct();
 	}
+
+	public function get_college_wali($nidn){ //term is value of $_REQUEST['search']['value']
+		
+		$this->db->select('*');
+		$this->db->from('ms_users_college as college');
+		$this->db->where('id_wali',$nidn);
+		$query = $this->db->get();
+		return $query->result();
+	}
 	public function get_user($sess_no){ //term is value of $_REQUEST['search']['value']
 		
 		$this->db->select('*');

@@ -4,7 +4,7 @@
             <div class="d-flex align-items-center">
                 <div>
                     <h4><?php echo $page ?></h4>
-                    <small>Konseling<i class="mdi mdi-chevron-right"></i><a href="<?php echo base_url('college/Konseling')?>">Aktifitas Konseling</a><i class="mdi mdi-chevron-right"></i><a href="">Form Pengajuan Konseling</a></small>
+                    <small>Konseling<i class="mdi mdi-chevron-right"></i><a href="<?php echo base_url('College/Konseling')?>">Aktifitas Konseling</a><i class="mdi mdi-chevron-right"></i><a href="">Form Pengajuan Konseling</a></small>
                 </div>
             </div>
         </div>

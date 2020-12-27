@@ -76,7 +76,7 @@
                                 <div class="row">
                                     <div class="col-xs-12 col-sm-12 col-md-12 mt-2 text-center">
                                         <div class="social">
-                                            <a href="<?php echo base_url('front/home')?>" class="btn  btn-facebook" data-toggle="tooltip" title="" data-original-title="Kembali Ke Halaman Awal"> <i aria-hidden="true" class="fa  fa-globe"></i> </a>
+                                            <a href="<?php echo base_url('Front/home')?>" class="btn  btn-facebook" data-toggle="tooltip" title="" data-original-title="Kembali Ke Halaman Awal"> <i aria-hidden="true" class="fa  fa-globe"></i> </a>
                                         </div>
                                     </div>
                                 </div>
@@ -123,7 +123,7 @@
         e.preventDefault();
         $.ajax({
             type: "post",
-            url : "<?php echo base_url('auth/proses_login')?>",
+            url : "<?php echo base_url('Auth/proses_login')?>",
             data: $(this).serialize(),
             dataType: "json",
             beforeSend: function(){
@@ -136,7 +136,7 @@
             },
              success: function (response){
                 if(response.success){
-                    window.location.href = "<?php echo base_url('auth/akses')?>";
+                    window.location.href = "<?php echo base_url('Auth/akses')?>";
                     
                 }else if(response.error){
                     if (response.username) {

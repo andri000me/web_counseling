@@ -192,13 +192,24 @@
             <tbody>
                  <?php foreach ($chat as $chats ) {
                     $login_id = $this->session->userdata('no_unique');
+                    $login_role = $this->session->userdata('role');
                     $id_user = $chats->id_user;
-                    if($login_id == $id_user)
-                    {
-                        $name = $chats->name_staff;
+                    if ($login_role == 'DSN') {
+                         if($login_id == $id_user)
+                        {
+                            $name = $chats->name_staff;
+                        }else{
+                            $name = $chats->name_college;
+                        }
                     }else{
-                        $name = $chats->name_college;
+                          if($login_id == $id_user)
+                        {
+                            $name = $chats->name_college;
+                        }else{
+                            $name = $chats->name_staff;
+                        }
                     }
+                    
                  ?>  
                 <tr>
                     <td width="50"><?php echo date('d M H:i A',strtotime($chats->datesend)) ?></td>
